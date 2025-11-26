@@ -13,9 +13,11 @@ projeto-eggik-cactos-suculentas/
 
 ├── arquivo/                  # Páginas principais do site
 
-│   └── index.html
+│   ├── index.html
 
-├── imagens/                  # Recursos visuais
+│   └── produtos.html
+
+├── imagem/                  # Recursos visuais
 
 │   ├── cacto-bola.png
 
