@@ -13,6 +13,8 @@ projeto-eggik-cactos-suculentas/
 
 ├── arquivo/                  # Páginas principais do site
 
+│   ├── fale-conosco.html
+
 │   ├── index.html
 
 │   └── produtos.html
@@ -23,7 +25,17 @@ projeto-eggik-cactos-suculentas/
 
 │   ├── cacto-estrela.png
 
-│   └── logoEGGIK.png
+│   ├── cacto-rabo-de-macaco.png
+
+│   ├── crassula-ovata.png
+
+│   ├── logoEGGIK.png
+
+│   ├── regador.png
+
+│   ├── substrato.png
+
+│   └── suculenta-rabo-de-burro.png
 
 ---
 
