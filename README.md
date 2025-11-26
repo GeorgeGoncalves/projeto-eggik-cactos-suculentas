@@ -8,12 +8,19 @@ O sistema apresenta produtos (cactos e suculentas), permite navegação entre p�
 ## 📁 Estrutura do projeto
 
 projeto-eggik-cactos-suculentas/
+
 ├── README.md                 # Documentação principal do projeto
+
 ├── arquivo/                  # Páginas principais do site
+
 │   └── index.html
+
 ├── imagens/                  # Recursos visuais
+
 │   ├── cacto-bola.png
+
 │   ├── cacto-estrela.png
+
 │   └── logoEGGIK.png
 
 ---
