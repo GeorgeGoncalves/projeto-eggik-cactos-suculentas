@@ -13,6 +13,8 @@ projeto-eggik-cactos-suculentas/
 
 ├── arquivo/                  # Páginas principais do site
 
+│   ├── carrinho.html
+
 │   ├── fale-conosco.html
 
 │   ├── index.html
