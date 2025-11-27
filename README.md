@@ -11,13 +11,17 @@ projeto-eggik-cactos-suculentas/
 
 ├── arquivo/                  # Páginas principais do site
 
-│   ├── carrinho.html
+│   ├── carrinho.php
 
-│   ├── fale-conosco.html
+│   ├── fale-conosco.php
 
-│   ├── index.html
+│   ├── index.php
 
-│   └── produtos.html
+│   └── produtos.php
+
+├── bancoDados/                     # Conexão com banco de dados
+
+│   └── conexaoBD.php
 
 ├── css/                     # Estilo das páginas
 
@@ -41,7 +45,12 @@ projeto-eggik-cactos-suculentas/
 
 │   └── suculenta-rabo-de-burro.png
 
-├── README.md                 # Documentação principal do projeto
+├── scriptBancoDados/                  # Inserindo dados ao banco de dados
+
+│   └── index.php
+
+└── README.md                 # Documentação principal do projeto
+
 ---
 
 ## 🚀 Como executar
@@ -49,14 +58,20 @@ projeto-eggik-cactos-suculentas/
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seuusuario/projeto-eggik-cactos-suculentas.git
-2. 	Abra a pasta arquivo e execute o arquivo index.html em um navegador.
+2. Instale o [XAMPP](https://www.apachefriends.org/index.html)  
+3. Certifique-se de que o Apache e o MySQL estão ativos  
+4. Coloque a pasta `projeto-eggik-cactos-suculentas.git` dentro do diretório `htdocs`  
+5. Acesse no navegador: [http://localhost/projeto-eggik-cactos-suculentas/scriptBancoDados/](http://localhost/projeto-eggik-cactos-suculentas/scriptBancoDados/)  
+6. O script criará o banco de dados e redirecionará para a página principal  
+
+---
 
 ## ⚙️ Funcionalidades
 - 🏠 Página inicial com apresentação da loja
 - 🌵 Exibição de produtos com imagens, descrição e preço
 - 🛒 Simulação de carrinho de compras
 - 📍 Integração com Google Maps para localização da instituição
-- Layout responsivo com Flexbox
+- 📐 Layout responsivo com Flexbox
 
 ---
 
@@ -64,8 +79,11 @@ projeto-eggik-cactos-suculentas/
 - HTML5
 - CSS3
 - Javascript
+- PHP (com mysqli)
+- MySQL
 - VSCode  
-- Copilot (Assistente de desenvolvimento e documentação)  
+- Copilot (Assistente de desenvolvimento e documentação)
+- Google Fonts (tipografia)  
 - Imagens para recursos visuais  
 
 ---
