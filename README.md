@@ -9,8 +9,6 @@ O sistema apresenta produtos (cactos e suculentas), permite navegação entre p�
 
 projeto-eggik-cactos-suculentas/
 
-├── README.md                 # Documentação principal do projeto
-
 ├── arquivo/                  # Páginas principais do site
 
 │   ├── carrinho.html
@@ -20,6 +18,10 @@ projeto-eggik-cactos-suculentas/
 │   ├── index.html
 
 │   └── produtos.html
+
+├── css/                     # Estilo das páginas
+
+│   └── ecommerce.css
 
 ├── imagem/                  # Recursos visuais
 
@@ -39,6 +41,7 @@ projeto-eggik-cactos-suculentas/
 
 │   └── suculenta-rabo-de-burro.png
 
+├── README.md                 # Documentação principal do projeto
 ---
 
 ## 🚀 Como executar
@@ -53,11 +56,14 @@ projeto-eggik-cactos-suculentas/
 - 🌵 Exibição de produtos com imagens, descrição e preço
 - 🛒 Simulação de carrinho de compras
 - 📍 Integração com Google Maps para localização da instituição
+- Layout responsivo com Flexbox
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
-- HTML5  
+- HTML5
+- CSS3
+- Javascript
 - VSCode  
 - Copilot (Assistente de desenvolvimento e documentação)  
 - Imagens para recursos visuais  

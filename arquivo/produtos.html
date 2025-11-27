@@ -7,6 +7,7 @@
     <meta name="author" content="George Gonçalves Miranda">
     <title>Produtos</title>
 
+    <link rel="stylesheet" href="../css/ecommerce.css">
 </head>
 
 <body>
@@ -16,7 +17,8 @@
     </header>
 
     <nav>
-        <ul>
+        <!-- Classe criada especialmente para customizar os botões de navegação. -->
+        <ul class="cabecalho-btn">
             <li><a href="index.html">Página principal</a></li>
             <li><a href="produtos.html">Mais Produtos</a></li>
             <li><a href="fale-conosco.html">Fale conosco</a></li>
@@ -27,14 +29,14 @@
     <main>
         <h2>Produtos para compras</h2>
 
-        <div>
+        <div class="flex-container-produtos">
             <article>
                 <img src="../imagem/regador.png" alt="regador de plantas" width="300" height="300">
 
                 <h3>Regador de Plantas 10 Litros – Eficiência e praticidade para seu jardim</h3>
-                <p></p><b>R$ 29,99</b></p>
-
-                <a href="carrinho.html">Adicionar ao carrinho</a>
+                <p class="preco"><b>R$ 29,99</b></p>
+                
+                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <p>Mantenha suas plantas sempre saudáveis com o regador de 10 litros, projetado para unir capacidade,
                     <b>resistência
@@ -63,10 +65,9 @@
                 <img src="../imagem/substrato.png" alt="saco com substrato" width="300" height="300">
 
                 <h3>Substrato para Cactos e Suculentas – Linha Terra</h3>
-                <p><b>R$ 29,99</b></p>
+                <p class="preco"><b>R$ 29,99</b></p>
 
-                <a href="carrinho.html">Adicionar ao carrinho</a>
-
+                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <p>Garanta o melhor cuidado para suas plantas com o substrato ideal para cactos e suculentas.
                     Desenvolvido
@@ -97,9 +98,9 @@
                 <img src="../imagem/crassula-ovata.png" alt="planta de jade" width="300" height="300">
 
                 <h3>Crassula ovata – Beleza, resistência e prosperidade em forma de planta</h3>
-                <p><b>R$ 15,99</b></p>
+                <p class="preco"><b>R$ 15,99</b></p>
 
-                <a href="carrinho.html">Adicionar ao carrinho</a>
+                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <p>A Crassula ovata, popularmente chamada de <b>planta-jade</b>, é uma suculenta ornamental que une
                     <b>elegância, simbolismo e facilidade de cultivo</b>. Com folhas carnudas de tom verde-brilhante e
@@ -129,9 +130,9 @@
                 <img src="../imagem/cacto-rabo-de-macaco.png" alt="cacto rabo de macaco" width="300" height="300">
 
                 <h3>Cacto Rabo-de-Macaco – Exuberância pendente e floração surpreendente</h3>
-                <p><b>R$ 79,90</b></p>
+                <p class="preco"><b>R$ 79,90</b></p>
 
-                <a href="carrinho.html">Adicionar ao carrinho</a>
+                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <p>O cacto rabo-de-macaco é uma planta exótica e ornamental que conquista pela sua aparência única e
                     <b>floração
@@ -165,9 +166,9 @@
 
                 <h3>Suculenta Rabo-de-Burro – Elegância pendente e charme natural
                 </h3>
-                <p><b>R$ 5,90</b></p>
+                <p class="preco"><b>R$ 5,90</b></p>
 
-                <a href="carrinho.html">Adicionar ao carrinho</a>
+                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <p>A suculenta Rabo-de-Burro é uma verdadeira joia do mundo vegetal. Com hastes longas e pendentes
                     cobertas

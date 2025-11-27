@@ -1,0 +1,292 @@
+ /* Abaixo está toda a estilização do site e-commerce "EGGIK Cactoslentas".
+
+   Procurei manter o máximo possível de organização — tanto para mim quanto para quem for ler este código futuramente.
+
+   Os comentários posicionados acima dos elementos que começam com "CUSTOMIZAÇÃO"
+   indicam que esses são componentes customizados individualmente.
+
+   Já os comentários iniciados com "INÍCIO" representam blocos estruturais do layout.
+
+   Por fim, mas não menos importante, há as seções referentes às páginas, marcadas com "-----".
+   As páginas "Carrinho" e "Fale Conosco" são exceções, pois foram agrupadas em uma única estilização,
+   intitulada "CUSTOMIZAÇÃO DOS FORMULÁRIOS".
+*/
+
+
+
+
+
+/* Fonte utilizada foi importada do Google Fonts, URL da fonte usada. */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik+Bubbles&display=swap');
+
+/* CUSTOMIZAÇÃO DO BODY */
+body {   
+    margin: 0;   /* Centraliza o main na tela do navegador. */
+    background-color: #f9ecb9;    /* Cor de fundo do body. */
+    font-family: "Roboto", sans-serif;    /* A fonte padrão do navegador foi altera, caso o navegador do cliente não tenha esse estilo de fonte vai ser usada o sans-sefif. */
+}
+
+/* CUSTOMIZAÇÃO DE TODOS OS SUBTITULOS DO SITE */
+h2 {
+    font-size: 40px;    /* Tamanho da fonte dos subtitulos. */
+    color: #355c52;    /* Cor da letras. */
+    text-align: center;    /* Alinhando o texto no centro. */
+    text-shadow: 3px 3px 4px rgba(135, 169, 117, 0.8);
+}
+
+/* CUSTOMIZÃO DO PARÁGRAFO PREÇO NO SITE TODO */
+.preco {
+    color: #355c52;    /* Cor das letras. */
+    font-size: 20px;    /* Tamanho da fonte. */
+}
+
+/* INÍCIO DO CABEÇALHO */
+header {
+    display: flex;    /* Usado para o bloco header ficar flexivel e poder colocar as tags que estão dentro lado a lado. */
+    justify-content: center;    /* Centraliza o itens do header. */
+    gap: 50px;  /* Espaço entre a logo e o título. */
+}
+
+h1 {
+    color: #f9ecb9;    /* Mudando a cor do título da página. */
+    letter-spacing: 2px;    /* Espaçamento entre as letras. */
+    font-size: 45px;    /* Aumentando o tamanho do título. */
+    text-align: center;    /* Alinhando o texto ao meio do bloco. */
+    width: 600px;   /* Foi preciso utilizar um tamanho padrão para dar efeito do fundo escuro com as letras clara. */
+    background-color: #355c52;    /* O fundo escuro da tag h1. */
+    border-radius: 50%;    /* O formato de elipse no título. */
+}
+/* FIM DO CABEÇALHO */
+
+
+/* INÍCIO CUSTOMIZAÇÃO DOS BOTÕES DE NAVEGAÇÃO */
+.cabecalho-btn {
+    display: flex;    /* Usado pelo mesmo motivo do header, deixando assim mais facil para trabalhar. */
+    justify-content: center;    /* Justificando no centro do bloco nav. */
+}
+
+.cabecalho-btn li {
+    list-style-type: none;    /* Retirando os buletes das "li's". */
+    margin: 10px;    /* Distanciamento entre as "li". */
+}
+
+.cabecalho-btn li a {
+    text-decoration: none;    /* Retirando a linha que sublinha a tag "a". */
+    border: 2px solid #355c52;    /* Colocando um borda para dar a sensação visual de botao. Largura da borda, tipo de borda e a cor. */
+    padding: 10px;    /* Aumentando a caixa e área de click. */
+    border-radius: 20px;    /* Dando forma de elipse ao botão. */
+    background-color: #d7e3c0;    /* Colocando cor de fundo. */
+    color: #355c52;    /* Cor das letras. */
+    display: inline-block;  /* Para converter o elemento de bloco em linha e bloco, usado para quando o botão aumentar seu tamanho não empurrar outros elementos podendo assim mudar a ordem dos elementos nas página. */
+}
+
+.cabecalho-btn li a:hover {
+    background-color: #355c52;  /* Muda a cor quando passa o mouse em cima dos botões. */
+    color: #ffeecd; /* Muda a cor da letra quando passa o mouse em cima dos botões. */
+    transform: scale(1.2); /* aumenta em 20% o tamanho do botão */
+    transition: background-color .5s ease, transform .3s ease;  /* Aqui está sendo controlado a velocidade da mudança da cor de fundo em 0,5s e a velocidade do aumento de 20% do tamanho original do botão em 0,3s. */
+}
+/* FIM DA CUSTOMIZAÇÃO DOS BOTÕES DE NAVEGAÇÃO */
+
+
+/* INÍCIO DA CUSTOMIZAÇÃO DOS BOTÕES "ADICIONAR AO CARRINHO". */
+a.addCarrinho {
+    background-color: #c7825b;    /* A cor de fundo do botão. */
+    text-decoration: none;    /* Retira o sublinhado da tag "a". */
+    padding: 10px;    /* Foi aumentado em 10px o tamanho da caixa box do botão. */
+    
+    color: #e9debf;    /* A cor da letra. */
+    border-radius: 10px;    /* Arredonda as pontas do botão. */
+}
+
+a.addCarrinho:hover {
+    background-color: #b26437;    /* Muda a cor de fundo do botão quando o mouse passa em cima. */
+    color: #edd899;    /* Muda a cor das letras do botão quando o mouse passa em cima. */
+}
+/* FINAL DA CUSTOMIZAÇÃO DOS BOTÕES "ADICIONAR AO CARRINHO". */
+
+
+/* INÍCIO DO FOOTER. */
+footer {
+    display: flex;    /* Usado para deixar o paragrafo lado a lado dos autores. */
+    align-items: center;    /* Usado para centralizar o parágrafo criadores(menor parágrafo no footer) vertivalmente. */
+    background-color: #355c52;    /* Cor de fundo do footer. */
+    padding: 20px;    /* Afastando os textos das bordas. */
+    line-height: 2;    /* Distância entre linhas no parágrafo com nomes e contatos mais afastados. */
+    gap: 200px;    /* Afastando um parágrafo do outro. */
+}
+
+footer p, a {
+  color: #ffeecd;    /* Cor das letras do footer. */
+}
+/* FINAL DO FOOTER. */
+
+
+/* ----- INÍCIO DA PÁGINA INDEX ----- */
+
+/* CONTAINER QUE CONTÉM OS PRINCIPAIS CONTEÚDOS DA PÁGINA */
+.flex-container {
+    display: flex;    /* Fazendo o container ficar flex. */
+}
+
+section {
+    background-color: #c7825b;    /* Cor de fundo. */
+    flex: 1;    /* Controlando o tamanho do bloco em 4x menos que seu irmão main. */
+}
+
+section p {
+    color: #f9ecb9;    /* Cor das letras. */
+    margin: 7px;    /* Uma pequena margem para não ficar grudado nas bordas da página. */
+    text-align: justify;    /* Tipo de alinhamento(justificado) para ocupar o maximo de espaço no bloco. */
+}
+
+.main-index {
+    flex: 4;    /* Controlando o tamanho do bloco em 4x maior que seu irmão section. */
+}
+
+/* PRODUTOS EM DESTAQUE */
+#noticiadestaque {
+  color: #355c52;   /* Cor das letras. */
+  padding: 40px;   /* Distância da primeira imagem para o h2. */ 
+  text-align: center;   /* Todo texto dentro do bloco article(noticiadestaque) fica centralizado. */
+}
+
+#noticiadestaque img {
+    display: block;    /* Forçando a imagem a vira bloco para ficar mais facil de trabalhar. */
+    margin: 0 auto;    /* Centralizando com a margem. */
+}
+
+#noticiadestaque h3 {
+    font-size: 30px;    /* Tamanho dos titulos com os nomes dos produtos.  */
+    text-align: center;    /* Centralizando o texto. */
+}
+
+#noticiadestaque p {
+  font-size: 20px;    /* Tamanho da fonte dos parágrafos. */
+  line-height: 1.6;    /* Distância entre as linhas dos parágrafos. */
+}
+
+#noticiadestaque li {
+    list-style-type: none;    /* Retirando os bullets de lista. */
+}
+
+.preco-btnCarrinho {
+    display: flex;    /* Fazendo o container ficar flexivel. */
+    gap: 20px;    /* Distância entre o botão e texto como valor. */
+    align-items: center;    /* Centralizando verticalmente. */
+    justify-content: center;    /* Centralizando horizontamente. O comando a cima junto com esse deixam o "itens" no centro do container. */
+}
+
+h4 {
+    text-align: center;    /* Centralizando o texto. */
+    font-size: 35px;    /* Aumentando o tamanho da letra. */
+    margin-bottom: 10px;    /* Uma pequena margem para aproximar o titulo do mapa. */
+    color: #355c52;    /* Cor da letra. */
+}
+
+iframe {
+    display: block;   /* Fazendo com que o "iframe" se comporte como bloco. */
+    margin: 0 auto;   /* Centralizando. */
+    width: 100%;    /* Ocupando a largura total do bloco( por opção própria) */
+}
+/* ----- FIM DA PÁGINA INDEX ----- */
+
+
+/* ----- INÍCIO DA PÁGINA PRODUTOS ----- */
+.flex-container-produtos {
+    display: flex;    /* Deixando os item do container flexiveis. */
+    width: 80%;    /* Tamanho da largura do container em relação ao navegador */
+    margin: 0 auto;    /* Centralizando o container. */
+    gap: 20px;    /* Espaço entre os itens filhos do container. */
+    flex-wrap: wrap;    /* Se não houver espaço na largura do container, os filhos iram quebrar linha. */
+}        
+
+.flex-container-produtos img {
+    width: 100%;    /* A imagem terá 100% da largura do container pai. Caso o pai altere sua largura a imagem sempre ocupará 100% da largura. */
+    height: 200px;    /* A altura das imagens serão padrões, independente se o container pai altere sua altura.  */
+    border-radius: 10px;    /* Arredondando as bordas da imgaem. */
+}
+
+.flex-container-produtos article {
+    margin: 0 auto;    /* O navegador distribui igualmente os espaços sobrando, em outras palavras centralizando os itens e igualando as margens. */
+    margin-bottom: 30px;    /* Criando uma distância para não ficar grudado no footer. */
+    width: 300px;   /* O tamanho da largura é padrão do container. */
+}
+
+.flex-container-produtos h3 {
+    height: 60px;   /* Deixando o bloco com altura padrão para tentar igualar visualmente. */   
+    text-align: center;    /* Alinhando o texto ao centro. */
+    margin-bottom: 10px;    /* Um distânciamento na parte de baixo do parágrafo preço. */
+}
+
+.flex-container-produtos p {
+    text-align: justify;    /* Justificando o alinhamento do bloco. */
+    margin: 0 5px;    /* Margens horizontais. */
+}
+
+.flex-container-produtos .preco {
+    margin-bottom: 20px;    /* Distânciamento na parte de baixo, afastando o botão "Adicionar ao carrinho".  */
+}
+
+.flex-container-produtos p {
+    margin-top: 30px;   /* Distânciamento na parte de cima do parágrafo, afastando o botão "Adicionar ao carrinho".  */
+}
+/* ----- FIM DA PÁGINA PRODUTOS ----- */
+
+
+/* ----- INÍCIO DA CUSTOMIZAÇÃO DOS FORMULÁRIOS ----- */
+ .container-formulario {
+    margin: 0 auto;    /* Centralizar o container. */
+    margin-bottom: 25px;    /* Criando um espaço entre o "produtos selecionados" e "pagamento no cartão". */
+    width: 30%;    /* Padronizando o tamanho do container. */
+} 
+
+.div-central-formulario {
+    margin: 0 auto;    /* Centraliza o conteúdo dentro do "fieldset. */
+    display: block;    /* Precisa converter os elementos de linha em elementos de bloco para poder centralizar.  */
+    width: 300px;   /* Tamanho da div, para conseguir centralizar é necessário uma largura. */
+}
+
+input {
+    padding: 5px;   /* Aumentando a caixa interna dos campos onde serão digitados. */
+    border-radius: 8px;    /* Arredondando as bordas dos campos onde serão digitados. */
+    margin-bottom: 10px;    /* Um pequeno espaço para eles não ficarem todos colados uns nos outros. */
+    margin-left: 5px;   /* Margem criado especialmente para o "n° do cartão, dando assim um espaço horizontalmente. */
+    background-color: #e7e7e7;    /* Mundando a cor do fundo do campo onde serão digitados. */
+    border: 2px solid #355c52;    /* Alterando o padrão das bordas dos campos de digitação, para deixar nos padrões do site. */
+    color: #355c52;    /* Cor das letras nos campos de digitação. */
+}
+
+fieldset {
+    border:1px solid #355c52;   /* Mudando a cor da borda do 'fieldset', para fica no padrão do site. */
+    color: #355c52;    /* Cor das letras dentro dessa tag. */
+}
+
+#nome, #email, #assunto {
+    text-align: center;    /* Centralizando o texto dentro do campo de entrada. */
+}
+
+#quantidade, #valor, #cartao, #cartao1, #cartao2, #cartao3, #vencimento, #codSeguranca {
+    text-align: right;    /* Deixando valores númericos a direita nos campos de digitação.   */
+}
+
+textarea {
+    width: 100%;    /* Ocupando 100% da largura do container pai. */
+}
+
+.btn-formulario {
+    padding: 7px 14px;    /* Aumentando a área do botão. */
+    margin-top: 10px;   /* Afastando o botão do campo 'textarea. */
+    font-weight: bolder;    /* Deixando o texto do botão em negrito. */
+    background-color: #d7e3c0;    /* Cor de fundo do botão do "Enviar". */
+    border-radius: 10px;
+    color: #355c52;
+    border:2px solid #355c52;
+}
+
+.btn-formulario:hover {
+    cursor: pointer;    /* Transformando o mouse na 'mãozinho' quando passa em cima do botão. */
+    color: #ffeecd;
+    background-color: #355c52;
+}
+/* ----- FIM DA CUSTOMIZAÇÃO DOS FORMULÁRIOS ----- */

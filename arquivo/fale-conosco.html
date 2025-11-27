@@ -7,6 +7,7 @@
     <meta name="author" content="George Gonçalves Miranda">
     <title>Produtos</title>
 
+    <link rel="stylesheet" href="../css/ecommerce.css">
 </head>
 
 <body>
@@ -16,7 +17,8 @@
     </header>
 
     <nav>
-        <ul>
+        <!-- Classe criada especialmente para customizar os botões de navegação. -->
+        <ul class="cabecalho-btn">
             <li><a href="index.html">Página principal</a></li>
             <li><a href="produtos.html">Mais Produtos</a></li>
             <li><a href="fale-conosco.html">Fale conosco</a></li>
@@ -24,44 +26,67 @@
         </ul>
     </nav>
 
-    <main>
+    <main class="container-formulario">
         <h2>Fale conosco</h2>
 
         <form action="" method="post">
             <fieldset>
                 <legend>Envie sua mensagem</legend>
 
-                <div>
+                <div class="div-central-formulario"></div>
                     <label for="nome">Nome</label>
                     <input type="text" name="nome" id="nome" placeholder="Fulano da Silva Sauro" required>
                 </div>
 
-                <div>
+                <div class="div-central-formulario"></div>
                     <label for="email">E-mail</label>
                     <input type="email" name="email" id="email" placeholder="fulano@outlook.com" required>
                 </div>
 
-                <div>
+                <div class="div-central-formulario"></div>
                     <label for="assunto">Assunto</label>
                     <input type="text" name="assunto" id="assunto" placeholder="Diário">
                 </div>
 
-                <div>
+                <div class="div-central-formulario">
                     <label for="sugestoes">Mensagem</label><br>
-                    <textarea name="sugestoes" id="sugestoes" rows="7" cols="40" placeholder="Querido diário..." required></textarea>
+                    <textarea name="sugestoes" id="sugestoes" rows="7" cols="40" placeholder="Querido diário..."
+                        required></textarea>
                 </div>
 
-                <button type="submit">Enviar mensagem</button>
+                <button type="submit" class="btn-formulario">Enviar mensagem</button>
             </fieldset>
         </form>
     </main>
-<footer>
+    <footer>
         <p><b>Criador: </b>Página desenvolvida por aluno do curso de TI da Instituição Newton Paiva - MG</p>
 
         <p><b>Nome: </b>George Gonçalves Miranda <b>Telefone: </b>
             (31) 99345-4571 <b>E-mail: </b><a href="">georgeggmiranda@gmail.com</a>
         </p>
     </footer>
+
+    <script>
+        // Adicionando um evento no click do botão com a classe .btn-faleconosco
+        document.querySelector('.btn-formulario').addEventListener("click", function verificarPreenchimento(event) {
+
+            // Captura o valor dos campos e remove espaços extras com .trim
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const assunto = document.getElementById('assunto').value.trim();
+            const sugestoes = document.getElementById('sugestoes').value.trim();
+
+            // Verifica se algum campo está vazio
+            if (nome == "" || email == "" || assunto == "" || sugestoes == "") {
+                // Exibi um alerta para o usuário
+                alert("Por favor, preencha todos os campos antes de enviar.");
+
+                // Impede o envio do formulário
+                event.preventDefault();
+            }
+        })
+    </script>
+
 </body>
 
 </html>
