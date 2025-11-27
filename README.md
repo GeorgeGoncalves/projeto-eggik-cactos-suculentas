@@ -21,6 +21,8 @@ projeto-eggik-cactos-suculentas/
 
 ├── bancoDados/                     # Conexão com banco de dados
 
+│   ├── buscaBancoDados.php
+
 │   └── conexaoBD.php
 
 ├── css/                     # Estilo das páginas

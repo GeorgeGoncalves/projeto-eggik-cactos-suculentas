@@ -1,3 +1,13 @@
+<?php
+// Incluindo o arquivo "conexaoBD.php" neste arquivo, para conectar com o banco de dados.
+include("../bancoDados/conexaoBD.php");
+
+// Inclui o arquivo "buscaBandoDados.php", para fazer a busca no banco de dados.
+include("../bancoDados/buscaBancoDados.php");
+
+// Atribuindo a função a "$buscarProdutosEmDestaque" e já guardando o array dos produtos destaques.
+$produtosDestaque = buscarProdutosEmDestaque($conexao);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,8 +37,6 @@
     </nav>
 
     <main>
-        <h2>SEJA BEM-VINDO ao melhor lugar para você comprar e aprender sobre suculentas e cactos!</h2>
-
         <!-- Conteiner criado para melhor trabalhar o layout da página inicial. -->
         <div class="flex-container">
 
@@ -78,107 +86,49 @@
             <!-- Classe criada para o main de outras páginas não serem afetados. -->
             <main class="main-index">
 
+                <h2>SEJA BEM-VINDO ao melhor lugar para você comprar e aprender sobre suculentas e cactos!</h2>
+
+                <!-- Pega somente o index[0] do array -->
+                <?php $produto = $produtosDestaque[0]; ?>
+
                 <!-- Mostra na tela os produtos em destaque -->
                 <article id="noticiadestaque">
-                    <img src="../imagem/cacto-estrela.png" alt="cacto estrela" width="600" height="600">
-                    <h3>Cacto Estrela – Elegância minimalista para seu espaço</h3>
+                    <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>" width="600" height="600">
+                    <h3><?= $produto['nome'] ?></h3>
 
                     <!-- Preço e botão de adicionar ao carrinho -->
                     <div class="preco-btnCarrinho">
-                        <p><b>R$ 24,90</b></p>
-                        <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                        <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
+                        <a href="carrinho.php" class="addCarrinho">Adicionar ao carrinho</a>
                     </div>
 
-                    <p>O cacto-estrela é uma joia botânica que une beleza, raridade e praticidade. Com seu formato
-                        arredondado e
-                        simétrico, marcado por costelas suaves que lembram uma estrela vista de cima, essa planta
-                        conquista
-                        colecionadores e amantes do design natural. Sem espinhos e com uma textura pontilhada por tufos
-                        brancos,
-                        o
-                        Astrophytum asterias é ideal para ambientes sofisticados e minimalistas.</p>
+                    <!-- Descrição com quebras de linha -->
+                    <p><?= nl2br($produto['descricao']) ?></p>
 
-                    <p>Além do visual único, ele floresce com delicadas pétalas amarelas e centro avermelhado, trazendo
-                        cor
-                        e
-                        vida
-                        ao
-                        seu espaço. Extremamente resistente, exige pouca manutenção: luz solar direta, solo bem drenado
-                        e
-                        regas
-                        espaçadas são suficientes para mantê-lo saudável e exuberante. </p>
-
-                    <p>Seja como peça decorativa, presente especial ou item de coleção, o cacto-estrela é uma escolha
-                        que
-                        transmite
-                        personalidade e bom gosto. Aposte nessa planta rara e transforme qualquer ambiente com um toque
-                        de
-                        natureza
-                        escultural.
-                    </p>
-
-                    <ul>
-                        <li><b>Ambiente ideal:</b> Sol pleno ou meia sombra</li>
-                        <li><b>Tamanho:</b> Até 15 cm de diâmetro</li>
-                        <li><b>Regas:</b> Esporádicas, com solo seco entre irrigações</li>
-                        <li><b>Floração:</b> Verão, com flores vibrantes e delicadas</li>
-                        <li><b>Diferencial:</b> Sem espinhos, formato estelar e fácil cultivo</li>
-                    </ul>
+                    <!-- Complemento HTML adicional -->
+                    <?= $produto['complemento'] ?>
                 </article>
 
+                <!-- Pega somente o index[1] do array -->
+                <?php $produto = $produtosDestaque[1]; ?>
+
                 <!-- Mostra na tela os produtos em destaque -->
                 <article id="noticiadestaque">
-                    <img src="../imagem/cacto-bola.png" alt="cacto bola" width="600" height="600">
-                    <h3>Cacto Bola – O ícone do design natural</h3>
+                    <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>" width="600" height="600">
+                    <h3><?= $produto['nome'] ?></h3>
 
                     <!-- Preço e botão de adicionar ao carrinho -->
                     <div class="preco-btnCarrinho">
-                        <p><b>R$ 54,90</b></p>
-                        <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                        <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
+                        <a href="carrinho.php" class="addCarrinho">Adicionar ao carrinho</a>
                     </div>
 
-                    <p>O cacto bola, também conhecido como bola de ouro ou poltrona de sogra, é uma planta
-                        escultural
-                        que
-                        une
-                        rusticidade e sofisticação. Com seu formato globoso e espinhos dourados marcantes, ele
-                        transforma
-                        qualquer
-                        ambiente em um ponto de destaque visual. Originário do México, esse cacto é símbolo de
-                        resistência e
-                        longevidade
-                        — podendo viver por gerações quando bem cuidado.</p>
+                    <!-- Descrição com quebras de linha -->
+                    <p><?= nl2br($produto['descricao']) ?></p>
 
-                    <p>Ideal para composições em vasos, jardins de inverno ou projetos paisagísticos modernos, o
-                        cacto
-                        bola
-                        exige
-                        pouca
-                        manutenção: luz solar direta, solo bem drenado e regas espaçadas são suficientes para manter
-                        sua
-                        beleza
-                        exuberante. Durante o verão, ele surpreende com flores solitárias e vibrantes no topo da
-                        planta,
-                        agregando
-                        ainda
-                        mais valor estético.</p>
+                    <!-- Complemento HTML adicional -->
+                    <?= $produto['complemento'] ?>
 
-                    <p>Além de sua imponência visual, o cacto bola é uma excelente escolha comercial por sua
-                        durabilidade,
-                        baixa
-                        demanda
-                        hídrica e apelo decorativo. Seja como peça central em ambientes internos ou como elemento de
-                        contraste
-                        em
-                        áreas
-                        externas, ele oferece personalidade e elegância com um toque exótico.</p>
-
-                    <ul>
-                        <li><b>Dimensões aproximadas:</b> 15–25 cm de diâmetro</li>
-                        <li><b>Ambiente ideal:</b> Sol pleno ou meia sombra</li>
-                        <li><b>Regas:</b> 1 vez por semana (em clima quente)</li>
-                        <li><b>Diferencial:</b> Espinhos dourados e formato escultural</li>
-                    </ul>
                 </article>
 
                 <div class="mapa">
