@@ -1,8 +1,4 @@
 <?php
-// Conectando com o banco de dados
-// Obs.: a porta que está sendo utilizada é a 3307 e o padrão do XAMPP é 3306
-$conexao = mysqli_connect("localhost", "root", "", "EGGIK", 3307);
-
 /**
  * Busca todos os produtos marcados como destaque no banco de dados.
  *
@@ -32,5 +28,33 @@ function buscarProdutosEmDestaque($conexao) {
             $produtos[] = $row;
         }
     }
+    return $produtos;
+}
+
+/**
+ * Busca todos os produtos cadastrados no banco de dados.
+ *
+ * @param mysqli $conexao Conexão ativa com o banco.
+ * @return array<int,array<string,mixed>> Lista de todos os produtos.
+ * 
+ * * Cada produto é representado por um array associativo com as seguintes chaves:
+ * - 'id' (int)            : Identificador único do produto.
+ * - 'nome' (string)       : Nome do produto.
+ * - 'preco' (float)       : Preço do produto.
+ * - 'caminho' (string)    : Caminho relativo da imagem do produto.
+ * - 'descricao' (string)  : Texto descritivo do produto.
+ * - 'complemento' (string): HTML adicional ou informações complementares.
+ * - 'destaque' (int|bool) : Flag indicando se o produto está em destaque.
+ */
+function buscarTodosProdutos($conexao)
+{
+    $sql = "SELECT * FROM produtos";
+    $resultado = mysqli_query($conexao, $sql);
+
+    $produtos = [];
+    while ($row = mysqli_fetch_assoc($resultado)) {
+        $produtos[] = $row;
+    }
+
     return $produtos;
 }

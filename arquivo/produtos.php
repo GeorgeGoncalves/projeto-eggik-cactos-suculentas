@@ -1,3 +1,12 @@
+<?php
+// Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
+include("../bancoDados/conexaoBD.php");
+
+// Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
+include("../bancoDados/funcoes.php");
+
+$todosProdutos = buscarTodosProdutos($conexao);
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +25,7 @@
         <h1>EGGIK Cactos e Suculentas</h1>
     </header>
 
-<nav>
+    <nav>
         <!-- Classe criada especialmente para customizar os botões de navegação. -->
         <ul class="cabecalho-btn">
             <li><a href="index.php">Página principal</a></li>
@@ -30,172 +39,120 @@
         <h2>Produtos para compras</h2>
 
         <div class="flex-container-produtos">
+
+            <!-- Pega somente o index[2] do array -->
+            <?php $produto = $todosProdutos[2]; ?>
+
             <article>
-                <img src="../imagem/regador.png" alt="regador de plantas" width="300" height="300">
+                <!-- Imagem do produto -->
+                <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>">
 
-                <h3>Regador de Plantas 10 Litros – Eficiência e praticidade para seu jardim</h3>
-                <p class="preco"><b>R$ 29,99</b></p>
-                
-                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                <!-- Nome do produto -->
+                <h3><?= $produto['nome'] ?></h3>
 
-                <p>Mantenha suas plantas sempre saudáveis com o regador de 10 litros, projetado para unir capacidade,
-                    <b>resistência
-                        e conforto no uso diário</b>. Fabricado em polietileno de alta densidade, esse regador é leve,
-                    durável e
-                    ideal para hortas, jardins, vasos e áreas verdes de médio a grande porte.
-                </p>
+                <!-- Preço formatado -->
+                <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
-                <p>Seu <b>bico tipo chuveirinho removível</b> garante uma irrigação uniforme e delicada, evitando o
-                    desperdício
-                    de
-                    água e protegendo folhas e flores mais sensíveis. O design ergonômico com alça reforçada facilita o
-                    transporte e
-                    o manuseio, mesmo quando cheio.</p>
+                <!-- Botão para adicionar ao carrinho -->
+                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
-                <ul>
-                    <li><b>Capacidade:</b> 10 litros</li>
-                    <li><b>Material:</b> Plástico resistente (polietileno de alta densidade)</li>
-                    <li><b>Bico:</b> Chuveirinho removível para irrigação suave</li>
-                    <li><b>Alça:</b> Anatômica e reforçada para maior conforto</li>
-                    <li><b>Uso ideal:</b> Hortas, jardins, vasos e estufas</li>
-                </ul>
+                <!-- Descrição com quebras de linha -->
+                <p><?= nl2br($produto['descricao']) ?></p>
+
+                <!-- Complemento HTML adicional -->
+                <?= $produto['complemento'] ?>
             </article>
 
+            <!-- Pega somente o index[3] do array -->
+            <?php $produto = $todosProdutos[3]; ?>
+
             <article>
-                <img src="../imagem/substrato.png" alt="saco com substrato" width="300" height="300">
+                <!-- Imagem do produto -->
+                <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>">
 
-                <h3>Substrato para Cactos e Suculentas – Linha Terra</h3>
-                <p class="preco"><b>R$ 29,99</b></p>
+                <!-- Nome do produto -->
+                <h3><?= $produto['nome'] ?></h3>
 
-                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                <!-- Preço formatado -->
+                <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
-                <p>Garanta o melhor cuidado para suas plantas com o substrato ideal para cactos e suculentas.
-                    Desenvolvido
-                    com
-                    uma
-                    fórmula balanceada, esse substrato oferece <b>alta drenagem, excelente aeração e nutrição sob
-                        medida</b>,
-                    evitando o excesso de umidade que pode comprometer a saúde das raízes.</p>
+                <!-- Botão para adicionar ao carrinho -->
+                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
-                <p>Composto por casca de pinus, carvão vegetal, húmus de minhoca e arenito, ele cria um ambiente leve e
-                    poroso,
-                    permitindo que as raízes respirem e se desenvolvam com vigor. Pronto para uso, é perfeito para
-                    vasos,
-                    jardineiras e terrários, proporcionando praticidade e resultados visíveis desde o primeiro plantio.
-                </p>
+                <!-- Descrição com quebras de linha -->
+                <p><?= nl2br($produto['descricao']) ?></p>
 
-                <ul>
-                    <li><b>Composição:</b> Casca de pinus, carvão vegetal, húmus de minhoca, perlita e arenito</li>
-                    <li><b>Aeração ideal:</b> Solo leve e solto para raízes saudáveis</li>
-                    <li><b>Pronto para uso:</b> Não requer misturas adicionais</li>
-                    <li><b>Indicado para:</b> Cactos, suculentas, rosa-do-deserto, zamioculca e outras espécies
-                        xerófitas
-                    </li>
-                </ul>
+                <!-- Complemento HTML adicional -->
+                <?= $produto['complemento'] ?>
             </article>
 
+            <!-- Pega somente o index[4] do array -->
+            <?php $produto = $todosProdutos[4]; ?>
+
             <article>
-                <img src="../imagem/crassula-ovata.png" alt="planta de jade" width="300" height="300">
+                <!-- Imagem do produto -->
+                <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>">
 
-                <h3>Crassula ovata – Beleza, resistência e prosperidade em forma de planta</h3>
-                <p class="preco"><b>R$ 15,99</b></p>
+                <!-- Nome do produto -->
+                <h3><?= $produto['nome'] ?></h3>
 
-                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                <!-- Preço formatado -->
+                <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
-                <p>A Crassula ovata, popularmente chamada de <b>planta-jade</b>, é uma suculenta ornamental que une
-                    <b>elegância, simbolismo e facilidade de cultivo</b>. Com folhas carnudas de tom verde-brilhante e
-                    bordas
-                    avermelhadas sob o sol, essa planta é considerada um <b>símbolo de sorte e prosperidade</b>, sendo
-                    amplamente utilizada em projetos de decoração e Feng Shui.
-                </p>
+                <!-- Botão para adicionar ao carrinho -->
+                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
-                <p>Seu crescimento lento e estrutura ramificada fazem dela uma excelente opção para <b>bonsais
-                        naturais</b>,
-                    vasos decorativos ou composições com outras suculentas. Além disso, é extremamente resistente:
-                    requer
-                    pouca
-                    água, adapta-se bem à luz solar direta ou indireta e pode viver por décadas com os cuidados certos.
-                </p>
+                <!-- Descrição com quebras de linha -->
+                <p><?= nl2br($produto['descricao']) ?></p>
 
-                <ul>
-                    <li><b>Tamanho:</b> Até 1 metro de altura (em cultivo prolongado)</li>
-                    <li><b>Ambiente ideal:</b> Sol pleno ou meia sombra</li>
-                    <li><b>Regas:</b> Apenas quando o solo estiver seco</li>
-                    <li><b>Flores:</b> Pequenas, brancas ou rosadas, no final do inverno</li>
-                    <li><b>Diferencial:</b> Planta associada à prosperidade e equilíbrio energético</li>
-                </ul>
+                <!-- Complemento HTML adicional -->
+                <?= $produto['complemento'] ?>
             </article>
 
+            <!-- Pega somente o index[5] do array -->
+            <?php $produto = $todosProdutos[5]; ?>
+
             <article>
-                <img src="../imagem/cacto-rabo-de-macaco.png" alt="cacto rabo de macaco" width="300" height="300">
+                <!-- Imagem do produto -->
+                <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>">
 
-                <h3>Cacto Rabo-de-Macaco – Exuberância pendente e floração surpreendente</h3>
-                <p class="preco"><b>R$ 79,90</b></p>
+                <!-- Nome do produto -->
+                <h3><?= $produto['nome'] ?></h3>
 
-                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                <!-- Preço formatado -->
+                <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
-                <p>O cacto rabo-de-macaco é uma planta exótica e ornamental que conquista pela sua aparência única e
-                    <b>floração
-                        vibrante</b>. Com hastes longas, pendentes e cobertas por espinhos finos e brancos que lembram
-                    pelos,
-                    <b>essa espécie é perfeita para vasos suspensos, jardins verticais</b> e ambientes que pedem um
-                    toque
-                    selvagem e elegante.
-                </p>
+                <!-- Botão para adicionar ao carrinho -->
+                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
-                <p>Originário das encostas rochosas da Bolívia, o Hildewintera colademononis floresce na primavera e
-                    verão
-                    com
-                    flores avermelhadas e exuberantes, <b>atraindo beija-flores e admiradores</b>. Além de sua beleza, é
-                    fácil
-                    de cuidar: precisa de luz indireta, substrato bem drenado e regas espaçadas — <b>ideal para quem
-                        busca
-                        praticidade</b> sem abrir mão do estilo.</p>
+                <!-- Descrição com quebras de linha -->
+                <p><?= nl2br($produto['descricao']) ?></p>
 
-                <ul>
-                    <li><b>Comprimento das hastes:</b> até 50 cm</li>
-                    <li><b>Ambiente ideal:</b> Luz filtrada ou sol da manhã</li>
-                    <li><b>Regas:</b> Moderadas, com substrato seco entre irrigações</li>
-                    <li><b>Floração:</b> Vermelha intensa, primavera/verão</li>
-                    <li><b>Indicado para:</b> Vasos suspensos, jardins verticais, decoração de interiores</li>
-                </ul>
+                <!-- Complemento HTML adicional -->
+                <?= $produto['complemento'] ?>
             </article>
 
+            <!-- Pega somente o index[6] do array -->
+            <?php $produto = $todosProdutos[6]; ?>
+
             <article>
-                <img src="../imagem/suculenta-Rabo-de-burro.png" alt="suculenta rabo de burro" width="300" height="300">
+                <!-- Imagem do produto -->
+                <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>">
 
-                <h3>Suculenta Rabo-de-Burro – Elegância pendente e charme natural
-                </h3>
-                <p class="preco"><b>R$ 5,90</b></p>
+                <!-- Nome do produto -->
+                <h3><?= $produto['nome'] ?></h3>
 
-                <a href="carrinho.html" class="addCarrinho">Adicionar ao carrinho</a>
+                <!-- Preço formatado -->
+                <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
-                <p>A suculenta Rabo-de-Burro é uma verdadeira joia do mundo vegetal. Com hastes longas e pendentes
-                    cobertas
-                    por
-                    folhas carnudas e verde-azuladas, essa planta cria um efeito cascata exuberante que <b>transforma
-                        qualquer
-                        ambiente em um espaço mais leve</b> e sofisticado. Ideal para vasos suspensos, arranjos
-                    verticais ou
-                    decorações internas com estilo natural e moderno.</p>
+                <!-- Botão para adicionar ao carrinho -->
+                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
-                <p>Originária do México, a Sedum morganianum é resistente, <b>fácil de cuidar</b> e perfeita para quem
-                    busca
-                    beleza com baixa manutenção. Suas folhas delicadas exigem manuseio cuidadoso, mas em troca
-                    <b>oferecem
-                        um
-                        visual único e encantador</b>. Na primavera, presenteia com pequenas flores rosadas ou
-                    avermelhadas
-                    que
-                    surgem nas pontas dos caules, adicionando ainda mais charme à composição.</p>
+                <!-- Descrição com quebras de linha -->
+                <p><?= nl2br($produto['descricao']) ?></p>
 
-                <ul>
-                    <li>Comprimento das hastes: até 90 cm</li>
-                    <li>Ambiente ideal: Luz indireta ou sol da manhã</li>
-                    <li>Regas: Moderadas, com solo seco entre irrigações</li>
-                    <li>Floração: Primavera, com flores delicadas em tons suaves</li>
-                    <li>Indicado para: Vasos suspensos, jardins verticais, decoração de interiores</li>
-                </ul>
+                <!-- Complemento HTML adicional -->
+                <?= $produto['complemento'] ?>
             </article>
         </div>
     </main>
@@ -207,6 +164,11 @@
             (31) 99345-4571 <b>E-mail: </b><a href="">georgeggmiranda@gmail.com</a>
         </p>
     </footer>
+
+    <?php
+    // Fecha a conexão com o banco de dados
+    mysqli_close($conexao);
+    ?>
 </body>
 
 </html>
