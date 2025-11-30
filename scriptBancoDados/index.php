@@ -1,13 +1,22 @@
 <?php
-
 /**
  * Este script deve ser executado uma única vez, antes da navegação pelas páginas.
  * Ele realiza a criação do banco de dados e insere os dados iniciais.
  * Para melhor funcionamento, certifique-se de que o servidor Apache e o MySQL estejam ativos no XAMPP.
  */
 
-// Incluindo o arquivo "conexao.php", para conectar ao banco de dados.
-include("../bancoDados/conexaoBD.php");
+// Conectando com o banco de dados
+// Obs.: a porta que está sendo utilizada é a 3307 e o padrão do XAMPP é 3306
+$conexao = mysqli_connect("localhost", "root", "", "", 3307);
+
+// Comando para criar o banco de dados
+$criaBanco = "CREATE DATABASE IF NOT EXISTS EGGIK";
+
+// Comando que executa o $criaBanco
+mysqli_query($conexao, $criaBanco);
+
+// Conectando ao banco "EGGIK"
+mysqli_select_db($conexao, "EGGIK");
 
 // Comando para criar  a tabela "Produtos" com as colunas "id", "nome", "caminho", "descricao", "complemento" e "destaque".
 $cria = "CREATE TABLE IF NOT EXISTS Produtos (
@@ -43,6 +52,9 @@ Originária do México, a Sedum morganianum é resistente, fácil de cuidar e pe
 
 // Comando que executa $dados, inseri dados na tabela "Produtos"
 mysqli_query($conexao, $dados);
+
+// Fechando conexão com banco de dados.
+mysqli_close($conexao);
 
 // Agora estou encaminhando o usuário para a página inicial do site, onde o mesmo poderá iniciar sua navegação
 header("location: ../arquivo/");

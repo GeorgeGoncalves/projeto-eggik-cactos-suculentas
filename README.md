@@ -23,8 +23,6 @@ projeto-eggik-cactos-suculentas/
 
 │   ├── buscaBancoDados.php
 
-│   └── conexaoBD.php
-
 ├── css/                     # Estilo das páginas
 
 │   └── ecommerce.css
@@ -47,7 +45,7 @@ projeto-eggik-cactos-suculentas/
 
 │   └── suculenta-rabo-de-burro.png
 
-├── scriptBancoDados/                  # Inserindo dados ao banco de dados
+├── scriptBancoDados/                  # Criando e inserindo dados ao banco de dados
 
 │   └── index.php
 
@@ -87,6 +85,14 @@ projeto-eggik-cactos-suculentas/
 - Copilot (Assistente de desenvolvimento e documentação)
 - Google Fonts (tipografia)  
 - Imagens para recursos visuais  
+
+---
+
+## 📌 Observações
+
+- A porta do MySQL utilizada é `3307`, diferente da padrão `3306`.  
+- O banco de dados é criado automaticamente na primeira execução do script.  
+- Os dados iniciais são inseridos via script em `scriptBancoDados/index.php`.  
 
 ---
 
