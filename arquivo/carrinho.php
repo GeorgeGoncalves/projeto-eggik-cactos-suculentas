@@ -12,6 +12,42 @@ session_start();
     <title>Carrinho</title>
 
     <link rel="stylesheet" href="../css/ecommerce.css">
+    <style>
+        /* BOTÕES DO +/- E DELETE DA PÁGINA CARRINHO */
+        .quantidade-controle a {
+            text-decoration: none;      /* remove o sublinhado */
+            background-color: #529decff;    /* cor de fundo azul */
+            color: #fff;    /* texto branco */
+            padding: 5px 10px;     /* espaço interno */
+            border-radius: 4px;    /* cantos arredondados */
+            margin: 0 5px;   /* espaço entre botões */
+            display: inline-block;    /* faz parecer botão */
+            font-weight: bold;    /* deixa o texto mais forte */
+        }
+
+        .quantidade-controle a:hover {
+            background-color: #027afcff;   /* azul mais escuro */
+        }
+
+        a.delete {
+            background-color: #e48a8aff;   /* fundo vermelho */
+        }
+
+        a.delete:hover {
+            background-color: #e61313ff;   /* vermelho mais escuro */
+        }
+
+        .div-central-formulario {
+            display: block;    /* mantém o bloco normal */
+        }
+
+        /* Alinha imagem e nome lado a lado */
+        .div-central-formulario .linha-nome {
+            display: flex;
+            align-items: center;
+            gap: 10px;   /* espaço entre imagem e nome */
+        }
+    </style>
 </head>
 
 <body>
@@ -61,9 +97,20 @@ session_start();
                                 <!-- Valor unitário do produto -->
                                 <p>Valor: R$ <?= number_format($item['preco'], 2, ',', '.') ?></p>
 
-                                <!-- Apenas exibe a quantidade -->
-                                <p>Quantidade: <output><?= $item['quantidade'] ?></output></p>
+                                <!-- Controle de quantidade -->
+                                <div class="quantidade-controle">
+                                    <!-- Botão diminuir -->
+                                    <a href="./alterarCarrinho.php?acao=diminuir&id=<?= $item['id'] ?>">-</a>
 
+                                    <!-- Apenas exibe a quantidade -->
+                                    <output>Quantidade: <?= $item['quantidade'] ?></output>
+
+                                    <!-- Botão aumentar -->
+                                    <a href="./alterarCarrinho.php?acao=aumentar&id=<?= $item['id'] ?>">+</a>
+
+                                    <!-- Link para excluir -->
+                                    <a href="./removerCarrinho.php?id=<?= $item['id'] ?>" class="delete">Delete</a>
+                                </div>
                                 <!-- Subtotal do item -->
                                 <p>Subtotal: R$ <?= number_format($item['preco'] * $item['quantidade'], 2, ',', '.') ?></p>
                             </div>
