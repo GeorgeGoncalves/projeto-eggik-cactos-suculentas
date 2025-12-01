@@ -3,7 +3,7 @@
 include("../bancoDados/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-include("../bancoDados/funcoes.php");
+include("../bancoDados/funcoesDeBusca.php");
 
 $todosProdutos = buscarTodosProdutos($conexao);
 ?>
@@ -54,7 +54,7 @@ $todosProdutos = buscarTodosProdutos($conexao);
                 <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
                 <!-- Botão para adicionar ao carrinho -->
-                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+                <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <!-- Descrição com quebras de linha -->
                 <p><?= nl2br($produto['descricao']) ?></p>
@@ -77,7 +77,7 @@ $todosProdutos = buscarTodosProdutos($conexao);
                 <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
                 <!-- Botão para adicionar ao carrinho -->
-                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+                <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <!-- Descrição com quebras de linha -->
                 <p><?= nl2br($produto['descricao']) ?></p>
@@ -100,7 +100,7 @@ $todosProdutos = buscarTodosProdutos($conexao);
                 <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
                 <!-- Botão para adicionar ao carrinho -->
-                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+                <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <!-- Descrição com quebras de linha -->
                 <p><?= nl2br($produto['descricao']) ?></p>
@@ -123,7 +123,7 @@ $todosProdutos = buscarTodosProdutos($conexao);
                 <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
                 <!-- Botão para adicionar ao carrinho -->
-                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+                <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <!-- Descrição com quebras de linha -->
                 <p><?= nl2br($produto['descricao']) ?></p>
@@ -146,7 +146,7 @@ $todosProdutos = buscarTodosProdutos($conexao);
                 <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
                 <!-- Botão para adicionar ao carrinho -->
-                <a href="../controller/adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+                <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
                 <!-- Descrição com quebras de linha -->
                 <p><?= nl2br($produto['descricao']) ?></p>

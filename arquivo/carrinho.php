@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +20,7 @@
         <h1>EGGIK Cactos e Suculentas</h1>
     </header>
 
-<nav>
+    <nav>
         <!-- Classe criada especialmente para customizar os botões de navegação. -->
         <ul class="cabecalho-btn">
             <li><a href="index.php">Página principal</a></li>
@@ -26,61 +30,61 @@
         </ul>
     </nav>
 
+    <!-- Classe criada para faciltita o trabalho e reutilizada nos formulários do fale conosco. -->
     <main class="container-formulario">
 
         <h2>Carrinho</h2>
 
-        <form action="meuProduto" method="get">
+        <!-- O formulário agora envia para a própria página carrinho.php -->
+        <form action="" method="get">
             <fieldset>
                 <legend>Produtos selecionados</legend>
 
-                <div>
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" value="Rosa do deserto viúva negra" size="30">
-                </div>
+                <?php
+                $total = 0;
+                if (!empty($_SESSION['carrinho'])) {
+                    foreach ($_SESSION['carrinho'] as $item) {
+                ?>
+                        <fieldset>
+                            <div class="div-central-formulario">
+                                <!-- ID oculto para identificar o produto -->
+                                <input type="hidden" name="id[]" value="<?= $item['id'] ?>">
 
-                <br>
+                                <div class="linha-nome">
+                                    <!-- Imagem do produto -->
+                                    <img src="<?= $item['caminho'] ?>" alt="<?= $item['nome'] ?>" width="50" height="50">
 
-                <div>
-                    <label for="quantidade">Quantidade</label>
-                    <input type="text" id="quantidade" name="qnt" value="3" size="1">
-                </div>
+                                    <!-- Nome ao lado da imagem -->
+                                    <p><?= $item['nome'] ?></p>
+                                </div>
 
-                <br>
+                                <!-- Valor unitário do produto -->
+                                <p>Valor: R$ <?= number_format($item['preco'], 2, ',', '.') ?></p>
 
-                <div>
-                    <label for="valor">Valor</label>
-                    <input type="text" id="valor" value="236,70" size="6">
-                </div>
+                                <!-- Apenas exibe a quantidade -->
+                                <p>Quantidade: <output><?= $item['quantidade'] ?></output></p>
+
+                                <!-- Subtotal do item -->
+                                <p>Subtotal: R$ <?= number_format($item['preco'] * $item['quantidade'], 2, ',', '.') ?></p>
+                            </div>
+                        </fieldset>
+                <?php
+                        // Soma o subtotal de cada item ao total
+                        $total += $item['preco'] * $item['quantidade'];
+                    }
+
+                    // Exibe o total geral do carrinho
+                    echo "<h3>Total do carrinho: R$ " . number_format($total, 2, ',', '.') . "</h3>";
+                } else {
+                    echo "<p>Carrinho vazio.</p>";
+                }
+                ?>
             </fieldset>
+
+            <!-- Botão para finalizar a compra -->
+            <button type="submit">Finalizar</button>
         </form>
 
-        <form action="meuCartao.php" method="post">
-            <fieldset>
-                <legend>Pagamento no cartão</legend>
-
-                <label for="cartao">N° do cartão</label>
-                <input type="text" id="cartao" name="cartao" minlength="4" maxlength="4" size="1" value="0009">
-                <input type="text" id="cartao1" name="cartao1" minlength="4" maxlength="4" size="1" value="1234">
-                <input type="text" id="cartao2" name="cartao2" minlength="4" maxlength="4" size="1" value="0987">
-                <input type="text" id="cartao3" name="cartao3" minlength="4" maxlength="4" size="1" value="6543">
-
-                <br>
-
-                <label for="vencimento">Data de vencimento</label>
-                <input type="text" id="vencimento" name="vencimento" minlength="5" maxlength="5" size="6" value="01/50">
-
-                <br>
-
-                <label for="codSeguranca">Código de segurança</label>
-                <input type="text" id="codSeguranca" name="codSeguranca" minlength="3" maxlength="3" size="1"
-                    value="001">
-
-                <br>
-
-                <input type="submit" value="COMPRAR">
-            </fieldset>
-        </form>
     </main>
 
     <footer>

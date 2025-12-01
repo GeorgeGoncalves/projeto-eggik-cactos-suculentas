@@ -3,7 +3,7 @@
 include("../bancoDados/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-include("../bancoDados/funcoes.php");
+include("../bancoDados/funcoesDeBusca.php");
 
 // Atribuindo a função a "$buscarProdutosEmDestaque" e já guardando o array dos produtos destaques.
 $produtosDestaque = buscarProdutosEmDestaque($conexao);
@@ -99,7 +99,7 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
                     <!-- Preço e botão de adicionar ao carrinho -->
                     <div class="preco-btnCarrinho">
                         <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
-                        <a href="carrinho.php" class="addCarrinho">Adicionar ao carrinho</a>
+                        <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
                     </div>
 
                     <!-- Descrição com quebras de linha -->
@@ -120,7 +120,7 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
                     <!-- Preço e botão de adicionar ao carrinho -->
                     <div class="preco-btnCarrinho">
                         <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
-                        <a href="carrinho.php" class="addCarrinho">Adicionar ao carrinho</a>
+                        <a href="./adicionarCarrinho.php?id=<?= $produto['id']?>" class="addCarrinho">Adicionar ao carrinho</a>
                     </div>
 
                     <!-- Descrição com quebras de linha -->

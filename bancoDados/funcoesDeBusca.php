@@ -58,3 +58,27 @@ function buscarTodosProdutos($conexao)
 
     return $produtos;
 }
+
+/**
+ * Busca um produto pelo ID na tabela produtos.
+ *
+ * @param mysqli $conexao Conexão aberta com o banco de dados.
+ * @param int $id ID do produto que deseja buscar.
+ * @return array|null Retorna um array associativo com os dados do produto encontrado.
+ * 
+ * * Cada produto é representado por um array associativo com as seguintes chaves:
+ * - 'id' (int)            : Identificador único do produto.
+ * - 'nome' (string)       : Nome do produto.
+ * - 'preco' (float)       : Preço do produto.
+ * - 'caminho' (string)    : Caminho relativo da imagem do produto.
+ * - 'descricao' (string)  : Texto descritivo do produto.
+ * - 'complemento' (string): HTML adicional ou informações complementares.
+ * - 'destaque' (int|bool) : Flag indicando se o produto está em destaque.
+ */
+function buscarProdutoPorId($conexao, $id)
+{
+    // Monta a query simples
+    $sql = "SELECT * FROM produtos WHERE id = $id";
+    $resultado = mysqli_query($conexao, $sql);
+    return mysqli_fetch_assoc($resultado);
+}
