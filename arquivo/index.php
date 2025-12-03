@@ -21,20 +21,13 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
 </head>
 
 <body>
-    <header>
-        <img src="../imagem/LogoEGGIK.png" alt="Logo da loja EGGIK" width="100" height="130">
-        <h1>EGGIK Cactos e Suculentas</h1>
-    </header>
+    <?php
+    // Incluindo arquivo "header", onde fica o cabeçalho das páginas.
+    include("../view/header.php");
 
-    <nav>
-        <!-- Classe criada especialmente para customizar os botões de navegação. -->
-        <ul class="cabecalho-btn">
-            <li><a href="index.php">Página principal</a></li>
-            <li><a href="produtos.php">Mais Produtos</a></li>
-            <li><a href="fale-conosco.php">Fale conosco</a></li>
-            <li><a href="carrinho.php">Carrinho</a></li>
-        </ul>
-    </nav>
+    // Incluindo arquivo "navegacao.php", onde fica a navegação do site.
+    include("../view/navegacao.php");
+    ?>
 
     <main>
         <!-- Conteiner criado para melhor trabalhar o layout da página inicial. -->
@@ -88,48 +81,12 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
 
                 <h2>SEJA BEM-VINDO ao melhor lugar para você comprar e aprender sobre suculentas e cactos!</h2>
 
-                <!-- Pega somente o index[0] do array -->
-                <?php $produto = $produtosDestaque[0]; ?>
-
-                <!-- Mostra na tela os produtos em destaque -->
-                <article id="noticiadestaque">
-                    <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>" width="600" height="600">
-                    <h3><?= $produto['nome'] ?></h3>
-
-                    <!-- Preço e botão de adicionar ao carrinho -->
-                    <div class="preco-btnCarrinho">
-                        <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
-                        <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
-                    </div>
-
-                    <!-- Descrição com quebras de linha -->
-                    <p><?= nl2br($produto['descricao']) ?></p>
-
-                    <!-- Complemento HTML adicional -->
-                    <?= $produto['complemento'] ?>
-                </article>
-
-                <!-- Pega somente o index[1] do array -->
-                <?php $produto = $produtosDestaque[1]; ?>
-
-                <!-- Mostra na tela os produtos em destaque -->
-                <article id="noticiadestaque">
-                    <img src="<?= $produto['caminho'] ?>" alt="<?= $produto['nome'] ?>" width="600" height="600">
-                    <h3><?= $produto['nome'] ?></h3>
-
-                    <!-- Preço e botão de adicionar ao carrinho -->
-                    <div class="preco-btnCarrinho">
-                        <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
-                        <a href="./adicionarCarrinho.php?id=<?= $produto['id']?>" class="addCarrinho">Adicionar ao carrinho</a>
-                    </div>
-
-                    <!-- Descrição com quebras de linha -->
-                    <p><?= nl2br($produto['descricao']) ?></p>
-
-                    <!-- Complemento HTML adicional -->
-                    <?= $produto['complemento'] ?>
-
-                </article>
+                <?php
+                // Percorre todos os produtos em destaque
+                foreach ($produtosDestaque as $produto) {
+                    include("../view/destaqueView.php");
+                }
+                ?>
 
                 <div class="mapa">
                     <h4>Venha nos visitar</h4>
@@ -184,17 +141,13 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
             </section>
 
         </div>
-        <footer>
-            <p><b>Criador: </b>Página desenvolvida por aluno do curso de TI da Instituição Newton Paiva - MG</p>
-
-            <p><b>Nome: </b>George Gonçalves Miranda <b>Telefone: </b>
-                (31) 99345-4571 <b>E-mail: </b><a href="">georgeggmiranda@gmail.com</a>
-            </p>
-        </footer>
 
         <?php
-        // Fecha a conexão com o banco de dados
-        mysqli_close($conexao);
+        // Incluidndo o arquivo "footer", onde fica o rodapé do site.
+        include("../view/footer.php");
+
+        // fecha conexão
+        fechaBD($conexao);
         ?>
 </body>
 

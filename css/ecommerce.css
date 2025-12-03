@@ -290,3 +290,39 @@ textarea {
     background-color: #355c52;
 }
 /* ----- FIM DA CUSTOMIZAÇÃO DOS FORMULÁRIOS ----- */
+
+
+/* BOTÕES DO +/- E DELETE DA PÁGINA CARRINHO */
+.quantidade-controle a {
+    text-decoration: none;    /* remove o sublinhado */
+    background-color: #9decff;    /* cor de fundo azul */
+    color: #fff;    /* texto branco */
+    padding: 5px 10px;    /* espaço interno */
+    border-radius: 4px;    /* cantos arredondados */
+    margin: 0 5px;    /* espaço entre botões */
+    display: inline-block;    /* faz parecer botão */
+    font-weight: bold;    /* deixa o texto mais forte */
+}
+
+.quantidade-controle a:hover {
+    background-color: #027afcff;    /* azul mais escuro */
+}
+
+a.delete {
+    background-color: #e48a8aff;    /* fundo vermelho */
+}
+
+a.delete:hover {
+    background-color: #e61313ff;    /* vermelho mais escuro */
+}
+
+.div-central-formulario {
+    display: block;    /* mantém o bloco normal */
+}
+
+/* Alinha imagem e nome lado a lado */
+.div-central-formulario .linha-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;    /* espaço entre imagem e nome */
+}

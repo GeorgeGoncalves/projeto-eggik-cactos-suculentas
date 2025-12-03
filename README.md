@@ -11,19 +11,25 @@ projeto-eggik-cactos-suculentas/
 
 ├── arquivo/                  # Páginas principais do site
 
+│   ├── adicionarCarrinho.php
+
+│   ├── alterarCarrinho.php
+
 │   ├── carrinho.php
 
 │   ├── fale-conosco.php
 
 │   ├── index.php
 
-│   └── produtos.php
+│   ├── produtos.php
+
+│   └── removerCarrinho.php
 
 ├── bancoDados/                     # Conexão com banco de dados
 
-│   ├── conexao.php
+│   ├── conexaoBD.php
 
-│   └── funcoes.php
+│   └── funcoesDeBusca.php
 
 ├── css/                     # Estilo das páginas
 
@@ -50,6 +56,18 @@ projeto-eggik-cactos-suculentas/
 ├── scriptBancoDados/                  # Criando e inserindo dados ao banco de dados
 
 │   └── index.php
+
+├── view/                  # Arquivos de visualizacão usados mais de uma vez no site
+
+│   ├── destaqueView.php
+
+│   ├── footer.php
+
+│   ├── header.php
+
+│   ├── navegacao.php
+
+│   ├── produtoView.php
 
 └── README.md                 # Documentação principal do projeto
 
@@ -85,6 +103,7 @@ projeto-eggik-cactos-suculentas/
 - MySQL
 - VSCode  
 - Copilot (Assistente de desenvolvimento e documentação)
+- Git Hub
 - Google Fonts (tipografia)  
 - Imagens para recursos visuais  
 

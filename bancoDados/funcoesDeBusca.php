@@ -82,3 +82,13 @@ function buscarProdutoPorId($conexao, $id)
     $resultado = mysqli_query($conexao, $sql);
     return mysqli_fetch_assoc($resultado);
 }
+
+/**
+ * Fecha a conexão com o banco de dados.
+ *
+ * @param mysqli $conexao Conexão aberta com o banco de dados.
+ * @return void
+ */
+function fechaBD($conexao) {
+    mysqli_close($conexao);
+}

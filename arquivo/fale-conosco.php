@@ -11,20 +11,14 @@
 </head>
 
 <body>
-    <header>
-        <img src="../imagem/LogoEGGIK.png" alt="Logo da loja EGGIK" width="100" height="130">
-        <h1>EGGIK Cactos e Suculentas</h1>
-    </header>
 
-<nav>
-        <!-- Classe criada especialmente para customizar os botões de navegação. -->
-        <ul class="cabecalho-btn">
-            <li><a href="index.php">Página principal</a></li>
-            <li><a href="produtos.php">Mais Produtos</a></li>
-            <li><a href="fale-conosco.php">Fale conosco</a></li>
-            <li><a href="carrinho.php">Carrinho</a></li>
-        </ul>
-    </nav>
+    <?php
+    // Incluindo arquivo "header", onde fica o cabeçalho das páginas.
+    include("../view/header.php");
+
+    // Incluindo arquivo "navegacao.php", onde fica a navegação do site.
+    include("../view/navegacao.php");
+    ?>
 
     <main class="container-formulario">
         <h2>Fale conosco</h2>
@@ -34,18 +28,18 @@
                 <legend>Envie sua mensagem</legend>
 
                 <div class="div-central-formulario"></div>
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" placeholder="Fulano da Silva Sauro" required>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome" placeholder="Fulano da Silva Sauro" required>
                 </div>
 
                 <div class="div-central-formulario"></div>
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="fulano@outlook.com" required>
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" placeholder="fulano@outlook.com" required>
                 </div>
 
                 <div class="div-central-formulario"></div>
-                    <label for="assunto">Assunto</label>
-                    <input type="text" name="assunto" id="assunto" placeholder="Diário">
+                <label for="assunto">Assunto</label>
+                <input type="text" name="assunto" id="assunto" placeholder="Diário">
                 </div>
 
                 <div class="div-central-formulario">
@@ -58,13 +52,11 @@
             </fieldset>
         </form>
     </main>
-    <footer>
-        <p><b>Criador: </b>Página desenvolvida por aluno do curso de TI da Instituição Newton Paiva - MG</p>
 
-        <p><b>Nome: </b>George Gonçalves Miranda <b>Telefone: </b>
-            (31) 99345-4571 <b>E-mail: </b><a href="">georgeggmiranda@gmail.com</a>
-        </p>
-    </footer>
+    <?php
+    // Incluidndo o arquivo "footer", onde fica o rodapé do site.
+    include("../view/footer.php");
+    ?>
 
     <script>
         // Adicionando um evento no click do botão com a classe .btn-faleconosco

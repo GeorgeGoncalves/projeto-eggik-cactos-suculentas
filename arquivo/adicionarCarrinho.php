@@ -62,3 +62,6 @@ if (isset($_GET['id'])) {
         echo "Produto não encontrado.";
     }
 }
+
+// fecha conexão
+fechaBD($conexao);

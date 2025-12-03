@@ -12,59 +12,16 @@ session_start();
     <title>Carrinho</title>
 
     <link rel="stylesheet" href="../css/ecommerce.css">
-    <style>
-        /* BOTÕES DO +/- E DELETE DA PÁGINA CARRINHO */
-        .quantidade-controle a {
-            text-decoration: none;      /* remove o sublinhado */
-            background-color: #529decff;    /* cor de fundo azul */
-            color: #fff;    /* texto branco */
-            padding: 5px 10px;     /* espaço interno */
-            border-radius: 4px;    /* cantos arredondados */
-            margin: 0 5px;   /* espaço entre botões */
-            display: inline-block;    /* faz parecer botão */
-            font-weight: bold;    /* deixa o texto mais forte */
-        }
-
-        .quantidade-controle a:hover {
-            background-color: #027afcff;   /* azul mais escuro */
-        }
-
-        a.delete {
-            background-color: #e48a8aff;   /* fundo vermelho */
-        }
-
-        a.delete:hover {
-            background-color: #e61313ff;   /* vermelho mais escuro */
-        }
-
-        .div-central-formulario {
-            display: block;    /* mantém o bloco normal */
-        }
-
-        /* Alinha imagem e nome lado a lado */
-        .div-central-formulario .linha-nome {
-            display: flex;
-            align-items: center;
-            gap: 10px;   /* espaço entre imagem e nome */
-        }
-    </style>
 </head>
 
 <body>
-    <header>
-        <img src="../imagem/LogoEGGIK.png" alt="Logo da loja EGGIK" width="100" height="130">
-        <h1>EGGIK Cactos e Suculentas</h1>
-    </header>
+    <?php
+    // Incluindo arquivo "header", onde fica o cabeçalho das páginas.
+    include("../view/header.php");
 
-    <nav>
-        <!-- Classe criada especialmente para customizar os botões de navegação. -->
-        <ul class="cabecalho-btn">
-            <li><a href="index.php">Página principal</a></li>
-            <li><a href="produtos.php">Mais Produtos</a></li>
-            <li><a href="fale-conosco.php">Fale conosco</a></li>
-            <li><a href="carrinho.php">Carrinho</a></li>
-        </ul>
-    </nav>
+    // Incluindo arquivo "navegacao.php", onde fica a navegação do site.
+    include("../view/navegacao.php");
+    ?>
 
     <!-- Classe criada para faciltita o trabalho e reutilizada nos formulários do fale conosco. -->
     <main class="container-formulario">
@@ -134,13 +91,10 @@ session_start();
 
     </main>
 
-    <footer>
-        <p><b>Criador: </b>Página desenvolvida por aluno do curso de TI da Instituição Newton Paiva - MG</p>
-
-        <p><b>Nome: </b>George Gonçalves Miranda <b>Telefone: </b>
-            (31) 99345-4571 <b>E-mail: </b><a href="">georgeggmiranda@gmail.com</a>
-        </p>
-    </footer>
+    <?php
+    // Incluidndo o arquivo "footer", onde fica o rodapé do site.
+    include("../view/footer.php");
+    ?>
 </body>
 
 </html>
