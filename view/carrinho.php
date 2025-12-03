@@ -57,16 +57,16 @@ session_start();
                                 <!-- Controle de quantidade -->
                                 <div class="quantidade-controle">
                                     <!-- Botão diminuir -->
-                                    <a href="./alterarCarrinho.php?acao=diminuir&id=<?= $item['id'] ?>">-</a>
+                                    <a href="../controller/carrinhoController.php?acao=diminuir&id=<?= $item['id'] ?>">-</a>
 
                                     <!-- Apenas exibe a quantidade -->
                                     <output>Quantidade: <?= $item['quantidade'] ?></output>
 
                                     <!-- Botão aumentar -->
-                                    <a href="./alterarCarrinho.php?acao=aumentar&id=<?= $item['id'] ?>">+</a>
+                                    <a href="../controller/carrinhoController.php?acao=aumentar&id=<?= $item['id'] ?>">+</a>
 
                                     <!-- Link para excluir -->
-                                    <a href="./removerCarrinho.php?id=<?= $item['id'] ?>" class="delete">Delete</a>
+                                    <a href="../controller/carrinhoController.php?acao=remover&id=<?= $item['id'] ?>" class="delete">Delete</a>
                                 </div>
                                 <!-- Subtotal do item -->
                                 <p>Subtotal: R$ <?= number_format($item['preco'] * $item['quantidade'], 2, ',', '.') ?></p>

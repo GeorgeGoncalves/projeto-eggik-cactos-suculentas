@@ -1,10 +1,11 @@
 <?php
-// Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
-include("../bancoDados/conexaoBD.php");
+// Inclui o arquivo de conexão com o banco de dados
+include("../model/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-include("../bancoDados/funcoesDeBusca.php");
+include("../model/funcoesDeBusca.php");
 
+// Função que busca todos os produtos
 $todosProdutos = buscarTodosProdutos($conexao);
 ?>
 <!DOCTYPE html>

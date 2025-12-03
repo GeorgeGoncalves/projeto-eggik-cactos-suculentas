@@ -57,5 +57,5 @@ mysqli_query($conexao, $dados);
 mysqli_close($conexao);
 
 // Agora estou encaminhando o usuário para a página inicial do site, onde o mesmo poderá iniciar sua navegação
-header("location: ../arquivo/");
+header("location: ../controller/indexController.php");
 exit;

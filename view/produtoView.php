@@ -9,7 +9,7 @@
     <p class="preco"><b>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></b></p>
 
     <!-- Botão para adicionar ao carrinho -->
-    <a href="./adicionarCarrinho.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
+    <a href="../controller/carrinhoController.php?id=<?= $produto['id'] ?>" class="addCarrinho">Adicionar ao carrinho</a>
 
     <!-- Descrição com quebras de linha -->
     <p><?= nl2br($produto['descricao']) ?></p>

@@ -46,8 +46,7 @@ function buscarProdutosEmDestaque($conexao) {
  * - 'complemento' (string): HTML adicional ou informações complementares.
  * - 'destaque' (int|bool) : Flag indicando se o produto está em destaque.
  */
-function buscarTodosProdutos($conexao)
-{
+function buscarTodosProdutos($conexao) {
     $sql = "SELECT * FROM produtos";
     $resultado = mysqli_query($conexao, $sql);
 
@@ -75,8 +74,7 @@ function buscarTodosProdutos($conexao)
  * - 'complemento' (string): HTML adicional ou informações complementares.
  * - 'destaque' (int|bool) : Flag indicando se o produto está em destaque.
  */
-function buscarProdutoPorId($conexao, $id)
-{
+function buscarProdutoPorId($conexao, $id) {
     // Monta a query simples
     $sql = "SELECT * FROM produtos WHERE id = $id";
     $resultado = mysqli_query($conexao, $sql);

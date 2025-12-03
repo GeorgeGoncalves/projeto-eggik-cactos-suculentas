@@ -9,33 +9,19 @@ O sistema apresenta produtos (cactos e suculentas), permite navegação entre p�
 
 projeto-eggik-cactos-suculentas/
 
-├── arquivo/                  # Páginas principais do site
+├── controller/                  # Controladores: coordenam fluxo entre Model e View
 
-│   ├── adicionarCarrinho.php
+│   ├── CarrinhoController.php    # adicionar, alterar, remover carrinho
 
-│   ├── alterarCarrinho.php
+│   ├── IndexController.php       # página inicial
 
-│   ├── carrinho.php
+│   └── ProdutoController.php     # lógica de listagem e detalhes de produtos
 
-│   ├── fale-conosco.php
-
-│   ├── index.php
-
-│   ├── produtos.php
-
-│   └── removerCarrinho.php
-
-├── bancoDados/                     # Conexão com banco de dados
-
-│   ├── conexaoBD.php
-
-│   └── funcoesDeBusca.php
-
-├── css/                     # Estilo das páginas
+├── css/                         # Estilos
 
 │   └── ecommerce.css
 
-├── imagem/                  # Recursos visuais
+├── imagem/                      # Recursos visuais
 
 │   ├── cacto-bola.png
 
@@ -53,13 +39,23 @@ projeto-eggik-cactos-suculentas/
 
 │   └── suculenta-rabo-de-burro.png
 
-├── scriptBancoDados/                  # Criando e inserindo dados ao banco de dados
+├── model/                       # Modelos: regras de negócio e acesso ao banco
+
+│   ├── ConexaoBD.php             # conexão com banco
+
+│   └── FuncoesDeBusca.php        # funções de consulta
+
+├── scriptBancoDados/            # Scripts para criação/população do banco
 
 │   └── index.php
 
-├── view/                  # Arquivos de visualizacão usados mais de uma vez no site
+├── view/                        # Views: arquivos de apresentação
+
+│   ├── carrinho.php
 
 │   ├── destaqueView.php
+
+│   ├── faleConoscoView.php
 
 │   ├── footer.php
 
@@ -67,11 +63,21 @@ projeto-eggik-cactos-suculentas/
 
 │   ├── navegacao.php
 
-│   ├── produtoView.php
+│   └── produtoView.php
 
-└── README.md                 # Documentação principal do projeto
+└── README.md                    # Documentação principal
 
 ---
+
+## 🏗️ Arquitetura MVC
+
+Este projeto segue o padrão **Model–View–Controller (MVC)**:
+
+- **Model (`model/`)** → contém as regras de negócio e acesso ao banco de dados  
+- **View (`view/`)** → responsável pela apresentação das páginas e interface com o usuário  
+- **Controller (`controller/`)** → coordena o fluxo entre Model e View, recebendo requisições e direcionando respostas  
+
+Essa separação facilita a manutenção, reutilização de código e organização do sistema.
 
 ## 🚀 Como executar
 

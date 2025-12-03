@@ -1,9 +1,9 @@
 <?php
 // Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
-include("../bancoDados/conexaoBD.php");
+include("../model/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-include("../bancoDados/funcoesDeBusca.php");
+include("../model/funcoesDeBusca.php");
 
 // Atribuindo a função a "$buscarProdutosEmDestaque" e já guardando o array dos produtos destaques.
 $produtosDestaque = buscarProdutosEmDestaque($conexao);
