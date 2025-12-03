@@ -2,11 +2,14 @@
 // Iniciando SESSÃO.
 session_start();
 
-// Incluindo o arquivo "conexao.php", para conectar ao banco de dados.
-include("../model/conexaoBD.php");
+// Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
+require_once("../model/conexaoBD.php");
 
-// Incluindo o arquivo "produtoModel.php", para fazer a busca no banco de dados.
-include("../model/funcoesDeBusca.php");
+// Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
+require_once("../model/produtoDAO.php");
+
+// Função que conecta com banco 
+$conexao = conectarBD();
 
 /**
  * Adiciona um produto ao carrinho de compras.
@@ -24,8 +27,11 @@ function adicionarProdutoAoCarrinho($conexao) {
         // Converte o ID para inteiro por segurança.
         $id = intval($_GET['id']);
 
+        // Instancia o DAO
+        $produtoDAO = new ProdutoDAO($conexao);
+
         // Busca o produto no banco de dados pelo ID.
-        $produto = buscarProdutoPorId($conexao, $id);
+        $produto = $produtoDAO -> buscarPorId($id);
 
         // Se encontrou o produto no banco dados.
         if ($produto) {

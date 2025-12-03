@@ -43,7 +43,7 @@ projeto-eggik-cactos-suculentas/
 
 │   ├── ConexaoBD.php             # conexão com banco
 
-│   └── FuncoesDeBusca.php        # funções de consulta
+│   └── ProdutoDAO.php        # Objeto de acesso a dados
 
 ├── scriptBancoDados/            # Scripts para criação/população do banco
 
@@ -78,6 +78,74 @@ Este projeto segue o padrão **Model–View–Controller (MVC)**:
 - **Controller (`controller/`)** → coordena o fluxo entre Model e View, recebendo requisições e direcionando respostas  
 
 Essa separação facilita a manutenção, reutilização de código e organização do sistema.
+
+---
+
+### 🔄 Evolução para DAO
+
+Anteriormente, o acesso ao banco de dados era realizado por funções isoladas em arquivos auxiliares.  
+Agora, essas operações foram encapsuladas em classes DAO (Data Access Object), como `ProdutoDAO`, que centralizam e organizam toda a lógica de persistência.  
+
+  **Benefícios da mudança para DAO**:
+  - Encapsulamento da lógica de acesso ao banco em objetos específicos
+  - Integração mais natural com o padrão MVC, mantendo o Controller focado apenas no fluxo da aplicação
+
+Diagrama do funcionamento do DAO
+
+[Usuário] 
+    ↓ (requisição HTTP)
+
+[Controller] -------------------------
+
+    | Recebe parâmetros da URL/POST
+
+    | Instancia o DAO correspondente
+
+    | Chama métodos do DAO (ex.: buscarPorId)
+
+    ↓
+
+[Model - DAO] ------------------------
+
+    | Encapsula a lógica de acesso ao banco
+
+    | Executa SQL (SELECT, INSERT, UPDATE, DELETE)
+
+    | Retorna arrays associativos com os dados
+
+    ↓
+[Banco de Dados] ---------------------
+
+    | Armazena os registros (produtos, carrinho, etc.)
+
+    ↑
+
+[Model - DAO] ------------------------
+
+    | Converte os resultados em objetos/arrays
+
+    ↑
+
+[Controller] -------------------------
+
+    | Processa os dados recebidos
+
+    | Decide qual View renderizar
+
+    ↓
+
+[View] -------------------------------
+
+    | Exibe os dados formatados (HTML, CSS, JS)
+
+    | Interface para o usuário
+
+Com a refatoração para DAO, o Model deixou de usar funções soltas e passou a encapsular o acesso ao banco em classes especializadas.
+O Controller não precisa mais conhecer SQL, apenas chama métodos do DAO (buscarTodos, buscarId, buscarDestaques).
+O View continua responsável apenas pela apresentação, recebendo dados já prontos do Controller.
+Essa mudança garante separação de responsabilidades, maior manutenibilidade e um fluxo mais claro entre as camadas.
+
+---
 
 ## 🚀 Como executar
 

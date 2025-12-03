@@ -1,13 +1,20 @@
 <?php
 // Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
-include("../model/conexaoBD.php");
+require_once("../model/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-include("../model/funcoesDeBusca.php");
+require_once("../model/produtoDAO.php");
+
+// Função que conecta com banco 
+$conexao = conectarBD();
+
+// Instancia o DAO passando a conexão
+$produtoDAO = new ProdutoDAO($conexao);
 
 // Atribuindo a função a "$buscarProdutosEmDestaque" e já guardando o array dos produtos destaques.
-$produtosDestaque = buscarProdutosEmDestaque($conexao);
+$produtosDestaque = $produtoDAO->buscarDestaques();
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -145,9 +152,6 @@ $produtosDestaque = buscarProdutosEmDestaque($conexao);
         <?php
         // Incluidndo o arquivo "footer", onde fica o rodapé do site.
         include("../view/footer.php");
-
-        // fecha conexão
-        fechaBD($conexao);
         ?>
 </body>
 
