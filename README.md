@@ -11,11 +11,15 @@ projeto-eggik-cactos-suculentas/
 
 ├── controller/                  # Controladores: coordenam fluxo entre Model e View
 
-│   ├── CarrinhoController.php    # adicionar, alterar, remover carrinho
+│   ├── carrinhoController.php    # adicionar, alterar, remover carrinho
 
-│   ├── IndexController.php       # página inicial
+│   ├── indexController.php       # página inicial
 
-│   └── ProdutoController.php     # lógica de listagem e detalhes de produtos
+│   ├── login.php                   # Lógica de login
+
+│   ├── logout.php                  # Lógica de logout
+
+│   └── produtoController.php     # lógica de listagem e detalhes de produtos
 
 ├── css/                         # Estilos
 

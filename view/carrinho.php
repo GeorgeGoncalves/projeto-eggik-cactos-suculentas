@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Se não estiver logado, redireciona para login
+if (!isset($_SESSION['logado'])) {
+    header("Location: ../controller/login.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
