@@ -386,10 +386,6 @@
 
  #quantidade,
  #valor,
- #cartao,
- #cartao1,
- #cartao2,
- #cartao3,
  #vencimento,
  #codSeguranca {
      text-align: right;
@@ -481,7 +477,7 @@
      /* centraliza horizontal */
      align-items: center;
      /* centraliza vertical */
-     height: 300px;
+     height: 335px;
      /* ocupa a tela inteira */
  }
 

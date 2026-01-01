@@ -53,6 +53,23 @@ Originária do México, a Sedum morganianum é resistente, fácil de cuidar e pe
 // Comando que executa $dados, inseri dados na tabela "Produtos"
 mysqli_query($conexao, $dados);
 
+// Cria a tabela de usuários
+$cria = "CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    senha VARCHAR(255) NOT NULL
+);";
+
+// Comando que executa $cria, criando a tabela "usuarios".
+mysqli_query($conexao, $cria);
+
+// Insere um usuário de teste
+$dados = "INSERT INTO usuarios (usuario, senha)
+VALUES ('admin', '123');";
+
+// Comando que executa $dados, inseri dados na tabela "usuarios"
+mysqli_query($conexao, $dados);
+
 // Fechando conexão com banco de dados.
 mysqli_close($conexao);
 
