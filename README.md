@@ -47,7 +47,11 @@ projeto-eggik-cactos-suculentas/
 
 │   ├── ConexaoBD.php             # conexão com banco
 
-│   └── ProdutoDAO.php        # Objeto de acesso a dados
+│   └── DAO        # Objeto de acesso a dados
+
+│       └── ProdutoDAO.php        # Acesso a dados do produto
+
+│       └── usuarioDAO.php        # Acesso a dados do usuario
 
 ├── scriptBancoDados/            # Scripts para criação/população do banco
 
@@ -163,6 +167,14 @@ Essa mudança garante separação de responsabilidades, maior manutenibilidade e
 6. O script criará o banco de dados e redirecionará para a página principal  
 
 ---
+
+## 🔑 Credenciais de Teste
+Este projeto já possui um usuário e senha inicial cadastrados no banco de dados para facilitar a execução em ambiente de teste.
+• 	Usuário padrão: admim
+• 	Senha padrão: 123
+
+⚠️ Atenção: essas credenciais são apenas para fins de desenvolvimento e testes.
+Em produção, recomenda-se alterar ou remover o usuário padrão e utilizar senhas criptografadas com password_hash().
 
 ## ⚙️ Funcionalidades
 - 🏠 Página inicial com apresentação da loja

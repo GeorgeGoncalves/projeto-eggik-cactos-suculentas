@@ -15,7 +15,7 @@ class UsuarioDAO
     public function buscarUsuario($usuario, $senha)
     {
         // Cria a instrução SQL para buscar o usuário e senha
-        $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario' AND senha = '$senha'";
+        $sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 
         // Executa a consulta SQL
         $resultado = mysqli_query($this->conexao, $sql);
@@ -23,7 +23,12 @@ class UsuarioDAO
         // Verifica se encontrou algum registro
         if (mysqli_num_rows($resultado) > 0) {
             // Retorna os dados do usuário encontrado
-            return mysqli_fetch_assoc($resultado);
+            $dados = mysqli_fetch_assoc($resultado);
+
+            // Verifica se a senha digitada corresponde ao hash
+            if (password_verify($senha, $dados['senha'])) {
+                return $dados; // Login válido
+            }
         } else {
             // Se não encontrou, retorna null
             return null;

@@ -5,7 +5,7 @@ session_start();
 include_once("../model/ConexaoBD.php");
 
 // Inclui o DAO de usuário
-include_once("../model/UsuarioDAO.php");
+include_once("../model/DAO/UsuarioDAO.php");
 
 // Se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -63,9 +63,14 @@ $cria = "CREATE TABLE IF NOT EXISTS usuarios (
 // Comando que executa $cria, criando a tabela "usuarios".
 mysqli_query($conexao, $cria);
 
-// Insere um usuário de teste
-$dados = "INSERT INTO usuarios (usuario, senha)
-VALUES ('admin', '123');";
+$usuario = "admin";
+$senha   = "123";
+
+// Criptografa a senha
+$senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+
+// Insere no banco já com o hash
+$dados = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario','$senhaCriptografada')";
 
 // Comando que executa $dados, inseri dados na tabela "usuarios"
 mysqli_query($conexao, $dados);

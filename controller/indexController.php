@@ -3,7 +3,7 @@
 require_once("../model/conexaoBD.php");
 
 // Incluindo arquivo "funcoes.php", onde fica as funções para busca no banco de dados.
-require_once("../model/produtoDAO.php");
+require_once("../model/DAO/produtoDAO.php");
 
 // Função que conecta com banco 
 $conexao = conectarBD();
