@@ -57,7 +57,8 @@ mysqli_query($conexao, $dados);
 $cria = "CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50) NOT NULL,
-    senha VARCHAR(255) NOT NULL
+    senha VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
 );";
 
 // Comando que executa $cria, criando a tabela "usuarios".
@@ -65,12 +66,13 @@ mysqli_query($conexao, $cria);
 
 $usuario = "admin";
 $senha   = "123";
+$email = "admin@gmail.com";
 
 // Criptografa a senha
 $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
 // Insere no banco já com o hash
-$dados = "INSERT INTO usuarios (usuario, senha) VALUES ('$usuario','$senhaCriptografada')";
+$dados = "INSERT INTO usuarios (usuario, senha, email) VALUES ('$usuario','$senhaCriptografada', '$email')";
 
 // Comando que executa $dados, inseri dados na tabela "usuarios"
 mysqli_query($conexao, $dados);

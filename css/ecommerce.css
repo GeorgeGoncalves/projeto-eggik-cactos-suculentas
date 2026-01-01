@@ -471,20 +471,5 @@
 
 
  /* ----- PÁGINA LOGIN ----- */
- .container-login {
-     display: flex;
-     justify-content: center;
-     /* centraliza horizontal */
-     align-items: center;
-     /* centraliza vertical */
-     height: 335px;
-     /* ocupa a tela inteira */
- }
-
- .formulario-login {
-     border: 1px solid #ccc;
-     padding: 20px;
-     border-radius: 8px;
-     background: #f9f9f9;
- }
+ 
  /* ----- FIM PÁGINA LOGIN ----- */
