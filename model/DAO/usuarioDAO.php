@@ -11,7 +11,14 @@ class UsuarioDAO
         $this->conexao = $conexao;
     }
 
-    // Função que busca um usuário específico pelo nome e senha
+    /**
+     * Busca um usuário específico pelo nome e valida a senha.
+     *
+     * @param string $usuario Nome do usuário a ser buscado
+     * @param string $senha   Senha digitada pelo usuário (texto puro)
+     *
+     * @return array|null Retorna os dados do usuário em caso de login válido, ou null se não encontrar ou a senha não corresponder
+     */
     public function buscarUsuario($usuario, $senha)
     {
         // Cria a instrução SQL para buscar o usuário e senha
@@ -33,5 +40,25 @@ class UsuarioDAO
             // Se não encontrou, retorna null
             return null;
         }
+    }
+
+     /**
+     * Método para cadastrar um novo usuário na tabela "usuarios".
+     *
+     * @param Usuario $usuario Objeto Usuario contendo os dados:
+     * - usuario: nome de login
+     * - senha: senha já criptografada com password_hash
+     * - email: endereço de e-mail
+     *
+     * @return bool Retorna true se o cadastro foi realizado com sucesso, ou false em caso de falha na execução da query.
+     */
+    public function cadastrar(Usuario $usuario)
+    {
+        $sql = "INSERT INTO usuarios (usuario, senha, email) VALUES ('" .
+            $usuario->getUsuario() . "', '" .
+            $usuario->getSenha() . "', '" .
+            $usuario->getEmail() . "')";
+
+        return mysqli_query($this->conexao, $sql);
     }
 }

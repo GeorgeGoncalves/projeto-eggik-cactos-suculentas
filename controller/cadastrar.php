@@ -1,26 +1,25 @@
 <?php
-// Inclui o arquivo "bandoDados.php", arquivo responsavel por atividades no banco de dados.
-require_once("../model/conexaoBD.php");
+// Inclui conexão e classes necessárias
+include("../model/ConexaoBD.php");
+include("../model/usuario.php");
+include("../model/DAO/UsuarioDAO.php");
 
-
-// Função que conecta com banco 
+// Cria conexão
 $conexao = conectarBD();
 
 // Se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Pega os valores enviados
-    $usuario = $_POST['usuario'];
-    $email   = $_POST['email'];
-    $senha   = $_POST['senha'];
+    // Cria objeto Usuario
+    $usuario = new Usuario();
+    $usuario->setUsuario($_POST['usuario']);
+    $usuario->setEmail($_POST['email']);
+    $usuario->setSenha(password_hash($_POST['senha'], PASSWORD_DEFAULT));
 
-    // Criptografa a senha
-    $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+    // Chama o DAO
+    $usuarioDAO = new UsuarioDAO($conexao);
 
-    // Prepara a query de inserção
-    $dados = "INSERT INTO usuarios (usuario, senha, email) VALUES ('$usuario','$senhaCriptografada', '$email')";
-
-    // Comando que executa $dados, inseri dados na tabela "usuarios"
-    mysqli_query($conexao, $dados);
+    // Redireciona para login se deu certo
+    header("Location: ../controller/login.php");
 }
 ?>
 
@@ -67,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </style>
 </head>
 
+
 <body>
     <?php
     // Incluindo arquivo "header", onde fica o cabeçalho das páginas.
@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <button type="submit">Cadastrar</button>
         </form>
     </div>
-
+    
     <?php
     // Incluidndo o arquivo "footer", onde fica o rodapé do site.
     include("../view/footer.php");

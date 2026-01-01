@@ -9,23 +9,30 @@ O sistema apresenta produtos (cactos e suculentas), permite navegação entre p�
 
 projeto-eggik-cactos-suculentas/
 
+│
+
 ├── controller/                  # Controladores: coordenam fluxo entre Model e View
 
-│   ├── carrinhoController.php    # adicionar, alterar, remover carrinho
+│   ├── cadastrar.php             # recebe POST do cadastro, chama UsuarioDAO e redireciona
 
-│   ├── indexController.php       # página inicial
+│   ├── carrinhoController.php    # lógica de adicionar, alterar, remover itens do carrinho
 
-│   ├── login.php                   # Lógica de login
+│   ├── indexController.php       # lógica da página inicial (carregar produtos em destaque)
 
-│   ├── logout.php                  # Lógica de logout
+│   ├── login.php                 # recebe POST do login, chama UsuarioDAO e valida com password_verify
+
+│   ├── logout.php                # destrói sessão e redireciona
 
 │   └── produtoController.php     # lógica de listagem e detalhes de produtos
 
+│
 ├── css/                         # Estilos
 
 │   └── ecommerce.css
 
-├── imagem/                      # Recursos visuais
+│
+
+├── imagem/                      # Recursos visuais (imagens do site)
 
 │   ├── cacto-bola.png
 
@@ -43,35 +50,47 @@ projeto-eggik-cactos-suculentas/
 
 │   └── suculenta-rabo-de-burro.png
 
+│
+
 ├── model/                       # Modelos: regras de negócio e acesso ao banco
 
-│   ├── ConexaoBD.php             # conexão com banco
+│   └── DAO/                      # Objetos de acesso a dados
 
-│   └── DAO        # Objeto de acesso a dados
+│       ├── ProdutoDAO.php        # CRUD de produtos
 
-│       └── ProdutoDAO.php        # Acesso a dados do produto
+│       └── UsuarioDAO.php        # CRUD de usuários (cadastrar, 
 
-│       └── usuarioDAO.php        # Acesso a dados do usuario
+│   ├── ConexaoBD.php             # classe de conexão com o banco (mysqli ou PDO)
+
+│   ├── produto.php             # Objeto produto
+
+│   ├── usuario.php             # Objeto usuario
+
+│
 
 ├── scriptBancoDados/            # Scripts para criação/população do banco
 
-│   └── index.php
+│   └── index.php                 # cria tabelas e insere dados iniciais
 
-├── view/                        # Views: arquivos de apresentação
+│
 
-│   ├── carrinho.php
+├── view/                        # Views: arquivos de apresentação (HTML + PHP)
 
-│   ├── destaqueView.php
+│   ├── carrinho.php              # interface do carrinho
 
-│   ├── faleConoscoView.php
+│   ├── destaqueView.php          # mostra produtos em destaque
 
-│   ├── footer.php
+│   ├── faleConoscoView.php       # formulário de contato
 
-│   ├── header.php
+│   ├── footer.php                # rodapé
 
-│   ├── navegacao.php
+│   ├── header.php                # cabeçalho
 
-│   └── produtoView.php
+│   ├── navegacao.php             # menu de navegação
+
+│   └── produtoView.php           # página de produto
+
+│
 
 └── README.md                    # Documentação principal
 
