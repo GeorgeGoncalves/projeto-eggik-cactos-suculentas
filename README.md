@@ -9,90 +9,51 @@ O sistema apresenta produtos (cactos e suculentas), permite navegação entre p�
 
 projeto-eggik-cactos-suculentas/
 
+```
 │
-
 ├── controller/                  # Controladores: coordenam fluxo entre Model e View
-
 │   ├── cadastrar.php             # recebe POST do cadastro, chama UsuarioDAO e redireciona
-
 │   ├── carrinhoController.php    # lógica de adicionar, alterar, remover itens do carrinho
-
 │   ├── indexController.php       # lógica da página inicial (carregar produtos em destaque)
-
 │   ├── login.php                 # recebe POST do login, chama UsuarioDAO e valida com password_verify
-
 │   ├── logout.php                # destrói sessão e redireciona
-
 │   └── produtoController.php     # lógica de listagem e detalhes de produtos
-
 │
 ├── css/                         # Estilos
-
 │   └── ecommerce.css
-
 │
-
 ├── imagem/                      # Recursos visuais (imagens do site)
-
 │   ├── cacto-bola.png
-
 │   ├── cacto-estrela.png
-
 │   ├── cacto-rabo-de-macaco.png
-
 │   ├── crassula-ovata.png
-
 │   ├── logoEGGIK.png
-
 │   ├── regador.png
-
 │   ├── substrato.png
-
 │   └── suculenta-rabo-de-burro.png
-
 │
-
 ├── model/                       # Modelos: regras de negócio e acesso ao banco
-
 │   └── DAO/                      # Objetos de acesso a dados
-
 │       ├── ProdutoDAO.php        # CRUD de produtos
-
 │       └── UsuarioDAO.php        # CRUD de usuários (cadastrar, 
-
 │   ├── ConexaoBD.php             # classe de conexão com o banco (mysqli ou PDO)
-
 │   ├── produto.php             # Objeto produto
-
 │   ├── usuario.php             # Objeto usuario
-
 │
-
 ├── scriptBancoDados/            # Scripts para criação/população do banco
-
 │   └── index.php                 # cria tabelas e insere dados iniciais
-
 │
-
 ├── view/                        # Views: arquivos de apresentação (HTML + PHP)
-
 │   ├── carrinho.php              # interface do carrinho
-
 │   ├── destaqueView.php          # mostra produtos em destaque
-
 │   ├── faleConoscoView.php       # formulário de contato
-
 │   ├── footer.php                # rodapé
-
 │   ├── header.php                # cabeçalho
-
 │   ├── navegacao.php             # menu de navegação
-
 │   └── produtoView.php           # página de produto
-
 │
-
 └── README.md                    # Documentação principal
+```
 
 ---
 
@@ -167,11 +128,6 @@ Diagrama do funcionamento do DAO
 
     | Interface para o usuário
 
-Com a refatoração para DAO, o Model deixou de usar funções soltas e passou a encapsular o acesso ao banco em classes especializadas.
-O Controller não precisa mais conhecer SQL, apenas chama métodos do DAO (buscarTodos, buscarId, buscarDestaques).
-O View continua responsável apenas pela apresentação, recebendo dados já prontos do Controller.
-Essa mudança garante separação de responsabilidades, maior manutenibilidade e um fluxo mais claro entre as camadas.
-
 ---
 
 ## 🚀 Como executar
@@ -189,8 +145,14 @@ Essa mudança garante separação de responsabilidades, maior manutenibilidade e
 
 ## 🔑 Credenciais de Teste
 Este projeto já possui um usuário e senha inicial cadastrados no banco de dados para facilitar a execução em ambiente de teste.
-• 	Usuário padrão: admim
-• 	Senha padrão: 123
+- 	Usuário padrão:
+```
+admim
+```
+- 	Senha padrão:
+```
+123
+```
 
 ⚠️ Atenção: essas credenciais são apenas para fins de desenvolvimento e testes.
 Em produção, recomenda-se alterar ou remover o usuário padrão e utilizar senhas criptografadas com password_hash().
